@@ -17,14 +17,14 @@ namespace ConsoleApp1
 
             string input = Console.ReadLine();
             Console.WriteLine("--------------------------------------------------------------------------");
-            if (input == "2")
+            if (input == "b")           
             {
                 Console.WriteLine("You are indeed correct, even if he borned in Corsica he had Italian roots!");
             }
 
             else
             {
-                Console.WriteLine("you are not correct, 2 is Valid answer!!!");
+                Console.WriteLine("you are not correct, B is Valid answer!!!");
                
                 
 
