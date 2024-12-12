@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using static ConsoleApp2.Program;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleApp2
 {
@@ -6,83 +7,53 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("True or False Quiz");
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("Platypus is mammal");
-            Console.WriteLine("--------------------------------------------------------------------------");
-            string input = Console.ReadLine();
-            Console.WriteLine("--------------------------------------------------------------------------");
-            int value = 0;
-            int value1 = 0;
-            int value2 = value1;
-            int value3 = value2;
-
-            if (input == "true")
-              
-            {
-                Console.WriteLine("You are correct, Fun fact even if it lays eggs its still mammal");
-                value1 = value + 1;
-
-
-
-            }
-
-            else
-            {
-                Console.WriteLine("you are not correct, answer was true!");
-
-               
-
-            }
+            string W = Console.ReadLine();
+            string S = Console.ReadLine();
+            int input = int.Parse(W);
+            int input1 = int.Parse(S);
+            //Console.WriteLine($"Sum of 2 numbers: {input1 + input}");
+            Add2Numbers(input, input1);
+            Console.WriteLine($"S: {input * input1}");
+            Console.WriteLine($"P: {2 * (input + input1)}");
             
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("Next Question, Was Petersburg named after Peter the first");
-            Console.WriteLine("--------------------------------------------------------------------------");
-            string input1 = Console.ReadLine();
-            Console.WriteLine("--------------------------------------------------------------------------");
-            if (input1 == "true")
-            {
-                Console.WriteLine("You are correct, Peter the first wanted its own capital as its name");
-                value2 = value1 + 1;
-
-            }
-            
-            else
-            {
-                Console.WriteLine("you are not correct, answer was true!");
-                
-                
-
-            }
-            
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("Next Question, Was Victoria the first, queen of England  170cm tall");
-            Console.WriteLine("--------------------------------------------------------------------------");
-            string input2 = Console.ReadLine();
-            Console.WriteLine("--------------------------------------------------------------------------");
-            if (input2 == "false")
-            {
-                Console.WriteLine("You are correct, Victoria wasnt 170cm tall but 147cm tall");
-                value3 = value2 + 1;
-            }
-            
-            else
-            {
-                Console.WriteLine("you are not correct, answer was true!");
-                
-              
-                }
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("Total score is:");
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine(value3);
-          
-            }
         }
-            }
+
+        static public void Add2Numbers(int input, int input1)
+        {
+            // Implement the logic for adding 2 numbers here and print
+            Console.WriteLine($"S: {input * input1}");
+            Console.WriteLine($"P: {2 * (input + input1) }");
+        }
 
 
 
+    }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
