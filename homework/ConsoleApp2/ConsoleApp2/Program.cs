@@ -1,4 +1,5 @@
-﻿using static ConsoleApp2.Program;
+﻿using System.Collections.Generic;
+using static ConsoleApp2.Program;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleApp2
@@ -7,28 +8,63 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            string W = Console.ReadLine();
-            string S = Console.ReadLine();
-            int input = int.Parse(W);
-            int input1 = int.Parse(S);
-            //Console.WriteLine($"Sum of 2 numbers: {input1 + input}");
-            Add2Numbers(input, input1);
-            Console.WriteLine($"S: {input * input1}");
-            Console.WriteLine($"P: {2 * (input + input1)}");
-            
-        }
 
-        static public void Add2Numbers(int input, int input1)
-        {
-            // Implement the logic for adding 2 numbers here and print
-            Console.WriteLine($"S: {input * input1}");
-            Console.WriteLine($"P: {2 * (input + input1) }");
+            var Lister = new List();
+            var Perc = new Per();
+            Console.WriteLine("Starting Percentage:");
+            Perc.Percentage();
+            Console.WriteLine("\nStarting List:");
+            Lister.Apple();
+
+
+
         }
+    }
+internal class List
+{
+
+    public void Apple()
+    {
+            var Lister = new List();
+
+            string Raddish = Console.ReadLine();
+        string Horse = Console.ReadLine();
+        string Cabbage = Console.ReadLine();
+
+    }
+}
+
+internal class Per
+{
+
+    public void Percentage()
+    {
+            var Perc = new Per();
+
+            Console.WriteLine("Insert Number");
+        string tree = Console.ReadLine();
+        double value1 = int.Parse(tree);
+        Console.WriteLine("Insert Percentage");
+        string grass = Console.ReadLine();
+        double value2 = int.Parse(grass);
+        Console.WriteLine("Result");
+        Console.WriteLine(value1 * value2 / 100);
+
+
+
+
+
+
+
+
+
 
 
 
     }
+
     }
+}
 
 
 
@@ -54,6 +90,10 @@ namespace ConsoleApp2
 
 
 
-    
+
+
+
+
+
 
 
