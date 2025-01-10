@@ -27,9 +27,17 @@ internal class List
     {
             var Lister = new List();
 
-            string Raddish = Console.ReadLine();
-        string Horse = Console.ReadLine();
-        string Cabbage = Console.ReadLine();
+            List<string> lst = new List<string>();
+
+            // Read three lines of input from the user and add them to the list
+            lst.Add(Console.ReadLine());
+            lst.Add(Console.ReadLine());
+            lst.Add(Console.ReadLine());
+
+            // Print out each item in the list as a word
+            foreach (string word in lst)
+            {
+                Console.WriteLine(word);  // Print each word on a new line
 
     }
 }
