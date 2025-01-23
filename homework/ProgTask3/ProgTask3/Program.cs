@@ -10,22 +10,23 @@ namespace ProgTask3
         static void Main(string[] args)
         {
 
-            var Lister = new Shorter();
-            var Perc = new lst();
-            var Rand = new four();
-            var Doter = new libary();         
+            var Lister = new Shorterener();
+            var Perc = new Listing();
+            var Rand = new ReverseFile();
+            var Doter = new LibaryBook();
+            
             Console.WriteLine("Starting remove every 2 words:");
-            //Lister.Apple();
-            Console.WriteLine("\nStarting list in reverse way");
-            //Perc.Pear();
-            Console.WriteLine("\nStarting put random stuff:");
+            Lister.Apple();
+            Console.WriteLine("\nStarting randomise");
+            Perc.Pear();
+            Console.WriteLine("\nStarting Reversing");
             Rand.Grape();
             Console.WriteLine("\nStarting calculate:");
             Doter.Banana();           
         }
     }
 }
-internal class Shorter
+internal class Shorterener
 {
     public void Apple()
     {
@@ -52,115 +53,107 @@ internal class Shorter
         return result;
     }
 }
-internal class lst
+internal class Listing
 {
     public void Pear()
     {
 
-            List<string> lst = new List<string>();
-
-            lst.Add(Console.ReadLine());
-            lst.Add(Console.ReadLine());
-            lst.Add(Console.ReadLine());
-            lst.Add(Console.ReadLine());
-            lst.Reverse();
-
-
-
-            Console.WriteLine("-----------------------------------------");
-
-
-            for (int i = 0; i < lst.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {lst[i]}");
-            }
-        }
-    }
-internal class four
-{    
-    public void Grape()
-    {
-
-
-
-
+        string input = "4";
+        
+        if (int.TryParse(input, out int number))
         {
-            string filePath = "test.txt";
-            List<string> coconut = new List<string>();
-            
-            using (StreamReader reader = new StreamReader(filePath))
+            PrintSquarePattern(number);
+        }
+
+        static void PrintSquarePattern(int number)
+        {
+            string row = new
+                string(number.ToString()[0], number);
+
+            for (int i = 0; i < number; i++)
             {
-                
-                for (int i = 4; i >= 1; --i)
                 {
-                    string line = reader.ReadLine();
-                    if (line == null)
-                        break;
-                    coconut.Add(line);
+                    Console.WriteLine(row);
 
 
-                   
+
+
+
                 }
             }
-            StreamWriter writer = new StreamWriter(filePath);
-            for (int i = 0;)
+        }
+    }
+}
+    
+
+internal class ReverseFile
+{
+    public void Grape()
+    {       
+            List<string> list = new List<string>();
+            using (StreamReader reader = new StreamReader("test.txt"))
+            using (StreamWriter writer = new StreamWriter("Answer.txt", true))
             {
-              
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+                list.Reverse();
+            writer.WriteLine("Reversed items are:");
+                for (int i = 0; i < list.Count; i++)                    
+                    writer.WriteLine($"{i + 1}. {list[i]}");
+
+            }
+     }
+}
+    
 
 
 
+    internal class LibaryBook
+    {
+        public void Banana()
+        {
+            Console.WriteLine("Enter amount of books (max 5):");
+            string tree = Console.ReadLine();
 
+            int books = int.Parse(tree);
+
+
+            if (books > 5)
+            {
+                Console.WriteLine("You can only borrow a maximum of 5 books.");
+                return;
+            }
+
+            Console.WriteLine("Enter number of days:");
+            string sun = Console.ReadLine();
+            Console.WriteLine("-------------------------------------------");
+
+            int value = int.Parse(sun);
+
+
+            if (value <= 21)
+            {
+                Console.WriteLine("No fine");
+            }
+            else
+            {
+                int extraDays = value - 21;
+
+
+                double fine = extraDays * 0.50 * books;
+
+
+                Console.WriteLine($"Your fine is {fine:C}");
             }
 
 
+
+
         }
-
-
-
-
-
-    internal class libary
-{
-    public void Banana()
-    {
-        Console.WriteLine("Enter amount of books (max 5):");
-        string tree = Console.ReadLine();
-
-        int books = int.Parse(tree);
-
-
-        if (books > 5)
-        {
-            Console.WriteLine("You can only borrow a maximum of 5 books.");
-            return;
-        }
-
-        Console.WriteLine("Enter number of days:");
-        string sun = Console.ReadLine();
-        Console.WriteLine("-------------------------------------------");
-
-        int value = int.Parse(sun);
-
-
-        if (value <= 21)
-        {
-            Console.WriteLine("No fine");
-        }
-        else
-        {
-            int extraDays = value - 21;
-
-
-            double fine = extraDays * 0.50 * books;
-
-
-            Console.WriteLine($"Your fine is {fine:C}");
-        }
-
-
-
 
     }
 
-}
 
