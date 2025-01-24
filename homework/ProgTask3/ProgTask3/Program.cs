@@ -31,7 +31,6 @@ internal class Shorterener
     public void Apple()
     {
 
-
         Console.WriteLine(Word("Auto"));
 
     }
@@ -47,9 +46,13 @@ internal class Shorterener
 
         for (int i = 0; i < word.Length; i += 2)
         {
+
             result += word[i];
+
         }
+
         Console.WriteLine("-------------------");
+
         return result;
     }
 }
@@ -58,34 +61,33 @@ internal class Listing
     public void Pear()
     {
 
-        string input = "4";
-        
-        if (int.TryParse(input, out int number))
+
         {
-            PrintSquarePattern(number);
+            string input = "5"; 
+
+            if (int.TryParse(input, out int number))
+            {
+               
+                PrintSquarePattern(number, "answer1.txt");
+            }
         }
 
-        static void PrintSquarePattern(int number)
+        static void PrintSquarePattern(int number, string filePath)
         {
-            string row = new
-                string(number.ToString()[0], number);
+            string row = new string(number.ToString()[0], number);
 
-            for (int i = 0; i < number; i++)
+           
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
+                for (int i = 0; i < number; i++)
                 {
-                    Console.WriteLine(row);
-
-
-
-
-
+                    writer.WriteLine(row); 
                 }
             }
         }
     }
 }
-    
-
+                     
 internal class ReverseFile
 {
     public void Grape()
@@ -106,54 +108,51 @@ internal class ReverseFile
 
             }
      }
-}
-    
-
-
-
+}  
     internal class LibaryBook
     {
         public void Banana()
         {
-            Console.WriteLine("Enter amount of books (max 5):");
-            string tree = Console.ReadLine();
+        Console.WriteLine("Enter amount of books (max 5):");
+        string tree = Console.ReadLine();
 
-            int books = int.Parse(tree);
+        int books = int.Parse(tree);
 
+        if (books > 5)
+        {
+            Console.WriteLine("You can only borrow a maximum of 5 books.");
+            return;
+        }
 
-            if (books > 5)
-            {
-                Console.WriteLine("You can only borrow a maximum of 5 books.");
-                return;
-            }
+        Console.WriteLine("Enter number of days:");
+        string sun = Console.ReadLine();
+        Console.WriteLine("-------------------------------------------");
 
-            Console.WriteLine("Enter number of days:");
-            string sun = Console.ReadLine();
-            Console.WriteLine("-------------------------------------------");
+        int value = int.Parse(sun);
 
-            int value = int.Parse(sun);
-
-
-            if (value <= 21)
-            {
-                Console.WriteLine("No fine");
-            }
-            else
-            {
-                int extraDays = value - 21;
-
-
-                double fine = extraDays * 0.50 * books;
-
-
-                Console.WriteLine($"Your fine is {fine:C}");
-            }
-
-
-
-
+        if (value <= 21)
+        {
+            Console.WriteLine("No fine");
+        }
+        else if (value >= 22 && value <= 30)
+        {
+            int extraDays = value - 21;
+            double fine = extraDays * 0.50 * books;
+            Console.WriteLine($"Your fine is {fine:C}");
+        }
+        else
+        {
+            int extraDays = value - 21;
+            double fine = extraDays * 0.80 * books;
+            Console.WriteLine($"Your fine is {fine:C}");
+            Console.WriteLine("Membership cancelled");
         }
 
     }
+
+
+}
+
+    
 
 
