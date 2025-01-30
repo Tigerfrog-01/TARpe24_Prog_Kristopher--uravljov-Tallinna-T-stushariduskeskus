@@ -6,10 +6,13 @@
         {
 
             double principal = 2000;
-            double interestRate = 2.1 / 100;
+
+            double interestRate = 10 / 100;
+
             int years = 1;
 
             double finalAmount = FindCompoundInterest(principal, interestRate, years);
+
             Console.WriteLine($"The final amount after {years} years is {finalAmount}");
         }
 
