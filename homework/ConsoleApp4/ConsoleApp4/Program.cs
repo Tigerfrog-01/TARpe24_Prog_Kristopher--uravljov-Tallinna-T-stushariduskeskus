@@ -7,7 +7,7 @@ namespace ConsoleApp4
         static void Main(string[] args)
         {
                
-            Console.WriteLine(GetMoneyInfo("5")); 
+            Console.WriteLine(GetMoneyInfo("207")); 
         }
 
         static string GetMoneyInfo(string amount)

@@ -77,7 +77,7 @@
                 File.WriteAllLines(outputFilePath, outputLines);
 
 
-                Console.WriteLine("Salary data processing complete. Check the output file.");
+                Console.WriteLine("Salary data processing is cooked. Check the cooked file.");
             }
             catch (Exception ex)
 

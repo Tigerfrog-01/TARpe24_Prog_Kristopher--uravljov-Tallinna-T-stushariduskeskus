@@ -5,41 +5,31 @@
         static void Main(string[] args)
         {
 
-            double principal = 2000;
-
-            double interestRate = 10 / 100;
-
+            double principal = 2200;
+            double interestRate = 0.021; 
             int years = 1;
 
             double finalAmount = FindCompoundInterest(principal, interestRate, years);
 
-            Console.WriteLine($"The final amount after {years} years is {finalAmount}");
+            Console.WriteLine($"The final amount after {years} years is {finalAmount:F2}");
         }
 
-        static double
-        FindCompoundInterest(double principal, double interestRate, int years)
-
-
+        static double FindCompoundInterest(double principal, double interestRate, int years)
         {
-
             for (int i = 0; i < years; i++)
             {
-
                 double interest = principal * interestRate;
-                principal += interest;
-
+                principal += interest;  
             }
-
             return principal;
-
         }
-
     }
 }
 
-        
-    
-     
+
+
+
+
 
 
 
