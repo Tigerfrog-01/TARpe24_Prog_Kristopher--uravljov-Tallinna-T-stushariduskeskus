@@ -52,7 +52,7 @@ internal class Interest
         for (int i = 0; i < years; i++)
         {
             double interest = principal * interestRate;
-            principal += interest; //p = p + i
+            principal += interest;
         }
         return principal;
     }
@@ -324,9 +324,10 @@ internal class Salarycalc
         catch (Exception ex)
 
         {
+
             Console.WriteLine("An error occurred: " + ex.Message);
 
         }
 
     }
-}
+}          
