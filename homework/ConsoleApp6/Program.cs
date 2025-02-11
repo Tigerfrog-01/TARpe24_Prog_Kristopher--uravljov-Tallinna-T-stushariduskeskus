@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.Design;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace ConsoleApp6
 {
@@ -61,35 +61,35 @@ namespace ConsoleApp6
             int result2 = int.Parse(change6);          
             if (result2 == 1)
             {
-                string date1 = ("18" + result1 );
+                Console.WriteLine("18" + result1 );
             }
             else if (result2 == 2)
             {
-                string date1 = ("18" + result1);
+                result2 = 18 + result1;
             }
             else if (result2 == 3)
             {
-                string date1 = ("19" + result1);
+              result2 = 19 + result1;
             }
             else if (result2 == 4)
             {
-                string date1 = ("19" + result1);
+                Console.WriteLine("19" + result1);
             }
             else if (result2 == 5)
             {
-                string date1 = ("20" + result1);
+                Console.WriteLine("20" + result1);
             }
             else if (result2 == 6)
             {
-                string date1 = ("20" + result1);
+                Console.WriteLine("20" + result1);
             }
             else if (result2 == 7)
             {
-                string date1 = ("21" + result1);
+                Console.WriteLine("21" + result1);
             }
             else if (result2 == 8)
             {
-                string date1 = ("21" + result1);
+                Console.WriteLine("21" + result1 );
             }
             //extract day
             string IDcode8 = "34501234215";
@@ -104,51 +104,56 @@ namespace ConsoleApp6
             
             if (result3 == 01)
             {
-                string date = ("January");
+                Console.WriteLine("January");
             }
             else if (result3 == 02)
             {
-               string date  = ("Febuary");
+               Console.WriteLine("Febuary");
             }
             else if (result3 == 04)
             {
-                string date = ("March");
+                Console.WriteLine("March");
             }
             else if (result3 == 05)
             {
-                string date = ("April");
+                Console.WriteLine("April");
             }
             else if (result3 == 06)
             {
-                string date = ("May");
+                Console.WriteLine("May");
             }
             else if (result3 == 07)
             {
-                string date = ("June");
+                Console.WriteLine("June");
             }
             else if (result3 == 08)
             {
-                string date = ("July");
+                Console.WriteLine("July");
             }
             else if (result3 == 09)
             {
-                string date = ("August");
+                Console.WriteLine("August");
             }
             else if (result3 == 10)
             {
-                string date = ("October");
+                Console.WriteLine("October");
 
             }
             else if (result3 == 11)
             {
-                string date = ("November");
+                Console.WriteLine("November");
             }
             else if (result3 == 12)
             {
-                result 3 = ("December");
+                Console.WriteLine("December");
             }
+
+            Console.WriteLine(result2);
             
+
+
         }
+        
     }
 
     }
