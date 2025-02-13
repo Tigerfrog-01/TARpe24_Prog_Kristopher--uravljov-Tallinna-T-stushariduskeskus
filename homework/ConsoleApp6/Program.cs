@@ -41,15 +41,16 @@ namespace ConsoleApp6
                 case 3:
                 case 5:
                 case 7:
-                Console.WriteLine("man");
+                Console.WriteLine("He is man");
                 break;
                 case 2:
                 case 4:
                 case 6:
                 case 8:
-                Console.WriteLine("woman");
+                Console.WriteLine("She is woman");
                 break;
             }
+            Console.Write("Birthyear is ");
             //Checking Birthdate
             //year first
             string IDcode7 = "34501234215";
@@ -61,41 +62,45 @@ namespace ConsoleApp6
             int result2 = int.Parse(change6);          
             if (result2 == 1)
             {
-                Console.WriteLine("18" + result1 );
+                Console.Write("18");
             }
             else if (result2 == 2)
             {
-                result2 = 18 + result1;
+                Console.Write("18");
             }
             else if (result2 == 3)
             {
-              result2 = 19 + result1;
+                Console.Write("19");
+                
             }
             else if (result2 == 4)
             {
-                Console.WriteLine("19" + result1);
+                Console.Write("19");
             }
             else if (result2 == 5)
             {
-                Console.WriteLine("20" + result1);
+                Console.Write("20");
             }
             else if (result2 == 6)
             {
-                Console.WriteLine("20" + result1);
+                Console.Write("20");
             }
             else if (result2 == 7)
             {
-                Console.WriteLine("21" + result1);
+                Console.Write("21");
             }
             else if (result2 == 8)
             {
-                Console.WriteLine("21" + result1 );
+                Console.Write("21");
             }
+            Console.Write(result1 + ".");
+            
+
             //extract day
             string IDcode8 = "34501234215";
             string change9 = IDcode8.Substring(5);
             string change10 = change9.Substring(0, change9.Length - 4);
-            Console.WriteLine(change10);
+            Console.Write(change10);
             //makin sure wich month is real
             string IDcode9 = "34501234215";
             string change11 = IDcode9.Substring(3);
@@ -104,51 +109,51 @@ namespace ConsoleApp6
             
             if (result3 == 01)
             {
-                Console.WriteLine("January");
+                Console.Write(".January");
             }
             else if (result3 == 02)
             {
-               Console.WriteLine("Febuary");
+               Console.Write(".Febuary");
             }
             else if (result3 == 04)
             {
-                Console.WriteLine("March");
+                Console.Write(".March");
             }
             else if (result3 == 05)
             {
-                Console.WriteLine("April");
+                Console.Write(".April");
             }
             else if (result3 == 06)
             {
-                Console.WriteLine("May");
+                Console.Write(".May");
             }
             else if (result3 == 07)
             {
-                Console.WriteLine("June");
+                Console.Write(".June");
             }
             else if (result3 == 08)
             {
-                Console.WriteLine("July");
+                Console.Write(".July");
             }
             else if (result3 == 09)
             {
-                Console.WriteLine("August");
+                Console.Write(".August");
             }
             else if (result3 == 10)
             {
-                Console.WriteLine("October");
+                Console.Write(".October");
 
             }
             else if (result3 == 11)
             {
-                Console.WriteLine("November");
+                Console.Write(".November");
             }
             else if (result3 == 12)
             {
-                Console.WriteLine("December");
+                Console.Write(".December");
             }
 
-            Console.WriteLine(result2);
+
             
 
 
