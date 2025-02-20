@@ -51,11 +51,11 @@ internal class FILEIDCHECKER
         Console.WriteLine("Control Nr: " + change);
 
         // Checking birth nr
-        string change1 = IDcode.Substring(9.1);    
+        string change1 = IDcode.Substring(9,1);    
         Console.WriteLine("Birth nr: " + change1);
 
         // Checking hospital location
-        string change3 = IDcode.Substring(7.2);        
+        string change3 = IDcode.Substring(7,2);        
         int value = int.Parse(change3);
         if (value >= 421 & value <= 470)
         {
@@ -119,7 +119,7 @@ internal class FILEIDCHECKER
         }
 
         // Checking gender
-        string change5 = IDcode.Substring(0.10);        
+        string change5 = IDcode.Substring(0,1);         
         int result = int.Parse(change5);
         switch (result)
         {
@@ -139,8 +139,8 @@ internal class FILEIDCHECKER
 
         // Checking Birthdate
         // Year first
-        string change7 = IDcode.Substring(1.4);      
-        string year = change7.Substring(0.4);     
+        
+        string year = IDcode.Substring(1,2);       
         int result1 = int.Parse(year);
         int result2 = int.Parse(change5);     
         if (result2 == 1)
@@ -178,11 +178,11 @@ internal class FILEIDCHECKER
         Console.Write(result1 + ".");
 
         // Extract day
-        string change9 = IDcode.Substring(5.4);    
+        string change9 = IDcode.Substring(5,2);     
         Console.Write(change9);
 
         // Determine month
-        string change11 = IDcode.Substring(3.6);      
+        string change11 = IDcode.Substring(3,1);      
         int result3 = int.Parse(change11);
 
         if (result3 == 1)
@@ -235,22 +235,3 @@ internal class FILEIDCHECKER
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
