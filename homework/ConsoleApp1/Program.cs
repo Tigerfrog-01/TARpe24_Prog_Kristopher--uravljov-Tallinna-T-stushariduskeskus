@@ -55,54 +55,109 @@ namespace ConsoleApp1
             //linen4.TurnOff(0);
 
 
-            Machine  = new BankCard();
-
-
+     
 
 
         }
     }
 }
 
-interface IIronMachine
+public interface IIronMachine
 {
-    void DeScale(int a);
+    void DeScale();
     void Iron(int b);
-    void UseSteam(int d);
-    void TurnOn(int d);
-    void TurnOff(int e);
+    void UseSteam();
+    void TurnOn();
+    void TurnOff();
 
 }
 
-class Regular : IIronMachine
+public class IroningMachine : IIronMachine
+{
+
+     public int UsageCounter { get; set; } = 0;
+     public bool IsOn { get; set; } = false;
+     public bool SteamEnabled { get; set; } = false;
+     public  string MachineType { get; set; }
+
+
+    public void TurnOn() => IsOn = true;
+    public void TurnOff() => IsOn = false;
+
+}
+public class IronTemp(int b)
+{
+
+
+
+
+
+
+
+
+
+
+
+}
+
+    public class Regular : IIronMachine
 
 {
 
-    public virtual void DeScale(int scale)
+    public virtual void DeScale()
     {
-
+        if (UsageCounter => 3)
+            DeScale(); 
     }
 
     public virtual void Iron(int Iron)
     {
+        if (Iron < 89)
+        {
+            Console.WriteLine("Temperature too low, lowest possible is 90");
 
- 
+        }
+        else if (Iron >= 90 & Iron <= 119)
+        {
+            Console.WriteLine("Doing synthetic program");
+            Console.WriteLine("Iron temperature: " + Iron);
+            
+        }
+        else if (Iron >= 120 & Iron <= 149)
+        {
+            Console.WriteLine("Doing silk program");
+            Console.WriteLine("Iron temperature: " + Iron);
+
+
+
+        }
+        else if (Iron >= 150 & Iron <= 199)
+        {
+            Console.WriteLine("Doing cotton program");
+            Console.WriteLine("Iron temperature: " + Iron);
+
+
+
+        }
+        else if (Iron >= 200 & Iron <= 231)
+        {
+            Console.WriteLine("Doing linen program");
+            Console.WriteLine("Iron temperature: " + Iron);
+        }
+
+    }
+    public virtual void UseSteam()
+    {
+       
+                                                                                     
     }
 
-    public virtual void UseSteam(int Steam)
+    public virtual void TurnOn()
     {
 
-        
-
-
     }
 
-    public virtual void TurnOn(int On)
-    {
-
-    }
-
-    public virtual void TurnOff(int Off)
+    public virtual void TurnOff()
     {
 
     }
@@ -120,7 +175,8 @@ class Linen : Regular
 
     public virtual void Iron(int Iron)
     {
-        int regular1 = 0;
+
+        
         if (Iron < 89)
         {
             Console.WriteLine("Temperature too low, lowest possible is 90");
@@ -136,98 +192,46 @@ class Linen : Regular
             Console.WriteLine("Iron temperature: " + Iron);
 
 
-            Console.WriteLine(regular1 + 1);
+          
         }
         else if (Iron >= 150 & Iron <= 199)
         {
             Console.WriteLine("Doing cotton program");
             Console.WriteLine("Iron temperature: " + Iron);
 
-           
-            Console.WriteLine(regular1 + 1);
+
+        
         }
         else if (Iron >= 200 & Iron <= 230)
         {
             Console.WriteLine("Doing linen program");
             Console.WriteLine("Iron temperature: " + Iron);
-            Console.WriteLine(regular1 + 1);
+         
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
-}
-class Machine
-{
-
-    private double _iron;
-    private double _usage;
-
-    public Machine()
-    {
-        _iron = 0;
-
-        _usage = 0;
-    }
-    public Machine(double iron, double usage)
-    {
-        this._iron = iron;
-        this._usage = usage;
-
-
-    }
-
-    public void DoIron(double iron, double usage)
-    {
-
-
-        if (iron < 89)
-        {
-            Console.WriteLine("Temperature too low, lowest possible is 90");
-
-        }
-        else if (iron >= 90 & iron <= 119)
-        {
-            Console.WriteLine("Doing synthetics program");
-            Console.WriteLine("Iron temperature: " + iron);
-            Console.WriteLine(usage + 1);
-        }
-        else if (iron >= 120 & iron <= 149)
-        {
-            Console.WriteLine("Doing silk program");
-            Console.WriteLine("Iron temperature: " + Iron);
-            Console.WriteLine(usage + 1);
-        }
-        else if (iron >= 150 & iron <= 199)
-        {
-            Console.WriteLine("Doing cotton program");
-            Console.WriteLine("Iron temperature: " + iron);
-            Console.WriteLine(usage + 1);
-        }
-        else if (iron >= 200 & iron <= 230)
-        {
-            Console.WriteLine("Cannot do the program, use linen");
-
-        }
-
-      
-    }
-    public void DoSteaming(double iron)
-    {
-
-        if (iron >= 120)
-        {
-            Console.WriteLine("Steam is used at the following temperature: " + iron);
-        }
-        else if (iron <= 120)
-        {
-            Console.WriteLine("Iron Temperature is too low for steam");
-        }
-
-    }
-
-
-
 
 
 
