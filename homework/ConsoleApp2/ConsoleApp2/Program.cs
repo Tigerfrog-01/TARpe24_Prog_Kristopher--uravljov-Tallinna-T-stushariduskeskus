@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp2
+﻿using System.Reflection.Emit;
+
+namespace ConsoleApp2
 {
     internal class Program
     {
@@ -7,23 +9,11 @@
            
          Football task = new Football();
 
-         task.CalculateAverageSpeed(30, 0, 20);
-            task.CalculateIfGoal(40, 20, 70, 1.7);
+         task.CalculateAverageSpeed(30, 0, 20);   
+         task.CalculateIfGoal(0, 70,0, 1.7);
 
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
+         task.NameGen("Addidas");
+         task.NameGen1("Toyota");
 
         }
     }
@@ -38,7 +28,7 @@ class Football
     //for second method
     private int _BallCoordinate;
     private int _BallRadius;
-    private int _GoalCoordinates;
+    private double _GoalCoordinates;
     private double _GoalDepth;
     //NormalBall
     private int _Diameter;
@@ -48,6 +38,9 @@ class Football
     private int _Diameter1;
     private int _Depth1;
     private int _Weight1;
+    //NameGen
+    private string _ballname;
+    private string _ballname1;
 
     public Football()
     {
@@ -61,18 +54,20 @@ class Football
         _Diameter = 0;
         _Depth = 1.7;
         _Weight = 0;
+        _ballname = ("Addidas");
         //youthball
         _Diameter1 = 0;
         _Depth1 = 0;
         _Weight1 = 0;
+        _ballname1 = ("Toyota");
 
     }
-    public Football(float XRadius, float RoadLenght, float Time, int BallCord, int GoalCord, double GoalDep, int Diameter, double Depth, int Weight, int Diameter1, int Depth1, int Weight1)
+    public Football(float XRadius, float RoadLenght, float Time, int BallCord, double GoalCord, double GoalDep, int Diameter, double Depth, int Weight, int Diameter1, int Depth1, int Weight1, string ballname, string ballname1)
     {
 
         this._Time = Time;
         this._RoadLenght = RoadLenght;
-        this._XRadius = XRadius;       
+        this._XRadius = XRadius;
         this._BallCoordinate = BallCord;
         this._GoalCoordinates = GoalCord;
         this._GoalDepth = GoalDep;
@@ -80,10 +75,12 @@ class Football
         this._Diameter = Diameter;
         this._Depth = Depth;
         this._Weight = Weight;
+        this._ballname = ballname;
         //YouthBall
         this._Diameter1 = Diameter1;
         this._Depth1 = Depth1;
         this._Weight1 = Weight1;
+        this._ballname1 = ballname1;
 
 
     }
@@ -94,26 +91,36 @@ class Football
         Console.WriteLine(result);
 
     }
-    public void CalculateIfGoal(int BallCord, int GoalCord,int Diameter, double GoalDep)
+    public void CalculateIfGoal(int BallCord, double GoalCord, int Diameter, double GoalDep)
     {
 
-        double result = BallCord - (Diameter / 2);
+        double ballRadius = Diameter / 2;
+        GoalCord = 0;
         double result1 = GoalCord - GoalDep;
-        if (result >= result1)
-        {
-
-            Console.WriteLine("Ball has hit goal");
-        }
-        else
-        {
-            Console.WriteLine("Ball has not hit goal");
-        }
-
-
-
-
-
-
-        }
+                                                                        
+        Console.WriteLine(BallCord - ballRadius >= GoalCord - GoalDep);
 
     }
+    public void NameGen(string ballname)
+    {
+        Random random = new Random();
+        int randomNumber =
+            random.Next(10000, 100000);
+       
+        string one = ballname.Substring(0,4);
+        Console.WriteLine(one + randomNumber );
+
+ 
+    }
+    public void NameGen1(string ballname1)
+    {
+        Random random = new Random();
+        int randomNumber =
+            random.Next(100, 1000);
+
+        string one = ballname1.Substring(0, 3);
+        Console.WriteLine(one + randomNumber);
+
+
+    }
+}
