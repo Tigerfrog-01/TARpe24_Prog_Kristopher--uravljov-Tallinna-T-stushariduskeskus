@@ -3,247 +3,213 @@ using System.IO;
 
 namespace ConsoleApp1
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            //Remove // for make command active, you got three options regular, premium, linen.  Change (0) to any number you like but remember regular and premium has value 90-199 below or above wont work and steam has 120+ below dont work.
-
-            //Regular regular = new Regular();
-            // regular.DeScale(0);
-
-
-            // regular.UseSteam(0);
-
-
-            //  regular.Iron(120);
-
-
-            //   regular.TurnOn(0);
-
-
-            //  regular.TurnOff(0);
-
-            // Premium premium = new  Premium();
-            //premium.DeScale(0);
-
-            //Premium premium1 = new Premium();
-            //premium1.Iron(0);
-
-            //Premium premium2 = new Premium();
-            //premium2.UseSteam(0);
-
-            //Premium premium3 = new Premium();
-            //premium3.TurnOn(0);
-
-            //Premium premium4 = new Premium();
-            //premium4.TurnOff(0);
-
-            //Linen linen = new Linen();
-            // linen.DeScale(0);
-
-            // Linen linen1 = new Linen();
-            //linen1.Iron(0);
-
-            //Linen linen2 = new Linen();
-            //linen2.UseSteam(0);
-
-            //Linen linen3 = new Linen();
-            //linen3.TurnOn(0);
-
-            //Linen linen4 = new Linen();
-            //linen4.TurnOff(0);
-
-
-     
-
-
+            var regular = new Regular();
+            var premium = new Premium();
+            var linen = new Linen();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            regular.TurnOn();
+            regular.Iron(170);
+            regular.Steam();        
+            regular.ProgramName("Cotton");
+            regular.ProgramName("Silk");
+            regular.Iron(90);
+            regular.Descale();
+            regular.ProgramName("Silk");
+            regular.TurnOff();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            premium.TurnOn();
+            premium.Iron(150);
+            premium.Steam();
+            premium.Iron(160);
+            premium.Iron(170);
+            premium.Iron(180);
+            premium.TurnOff();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            linen.TurnOn();
+            linen.ProgramName("Linen");
+            linen.Iron(210);
+            linen.Descale();
+            linen.Iron(200);
+            linen.TurnOff();
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
         }
     }
-}
 
-public interface IIronMachine
-{
-    void DeScale();
-    void Iron(int b);
-    void UseSteam();
-    void TurnOn();
-    void TurnOff();
-
-}
-
-public class IroningMachine : IIronMachine
-{
-
-     public int UsageCounter { get; set; } = 0;
-     public bool IsOn { get; set; } = false;
-     public bool SteamEnabled { get; set; } = false;
-     public  string MachineType { get; set; }
-
-
-    public void TurnOn() => IsOn = true;
-    public void TurnOff() => IsOn = false;
-
-}
-public class IronTemp(int b)
-{
-
-
-
-
-
-
-
-
-
-
-
-}
-
-    public class Regular : IIronMachine
-
-{
-
-    public virtual void DeScale()
+    public interface IIroningMachine
     {
-        if (UsageCounter => 3)
-            DeScale(); 
+        void Descale();
+        void Iron(int temperature);
+        void ProgramName(string program);
+        void Steam();
+        void TurnOn();
+        void TurnOff();
     }
 
-    public virtual void Iron(int Iron)
+   
+    public abstract class IroningMachine : IIroningMachine
     {
-        if (Iron < 89)
-        {
-            Console.WriteLine("Temperature too low, lowest possible is 90");
+        protected string MachineType;
+        protected int UsageCounter = 0;
+        protected bool NeedsCleaning => UsageCounter >= 3;
+        protected bool SteamOn = false;
 
-        }
-        else if (Iron >= 90 & Iron <= 119)
-        {
-            Console.WriteLine("Doing synthetic program");
-            Console.WriteLine("Iron temperature: " + Iron);
-            
-        }
-        else if (Iron >= 120 & Iron <= 149)
-        {
-            Console.WriteLine("Doing silk program");
-            Console.WriteLine("Iron temperature: " + Iron);
-
-
-
-        }
-        else if (Iron >= 150 & Iron <= 199)
-        {
-            Console.WriteLine("Doing cotton program");
-            Console.WriteLine("Iron temperature: " + Iron);
-
-
-
-        }
-        else if (Iron >= 200 & Iron <= 231)
-        {
-            Console.WriteLine("Doing linen program");
-            Console.WriteLine("Iron temperature: " + Iron);
-        }
-
-    }
-    public virtual void UseSteam()
+        protected Dictionary<string, (int Min, int Max)> Programs = new()
     {
-       
-                                                                                     
+        { "Linen", (200, 230) },
+        { "Cotton", (150, 199) },
+        { "Silk", (120, 149) },
+        { "Synthetics", (90, 119) }
+    };
+
+        public void TurnOn() => Console.WriteLine($"{MachineType} is now turned on");
+
+        public void TurnOff() => Console.WriteLine($"{MachineType} is now turned off");
+
+        public void Steam()
+        {
+            if (SteamOn)
+            {
+                Console.WriteLine("Steam is already on");
+            }
+            else
+            {
+                SteamOn = true;
+                Console.WriteLine("Steam is turned on");
+            }
+        }
+
+        public abstract void Descale();
+
+        public void Iron(int temperature)
+        {
+            if (NeedsCleaning)
+            {
+                Console.WriteLine("The machine has already been used 3 times please wash it now");
+                return;
+            }
+
+            string program = null;
+            foreach (var prog in Programs)
+            {
+                if (temperature >= prog.Value.Min && temperature <= prog.Value.Max)
+                {
+                    program = prog.Key;
+                    break;
+                }
+            }
+
+            if (program == null)
+            {
+                Console.WriteLine("not correct temperature range for ironing");
+                return;
+            }
+
+            PerformIroning(program, temperature);
+        }
+
+        public void ProgramName(string program)
+        {
+            if (NeedsCleaning)
+            {
+                Console.WriteLine("The machine has already been used 3 times please wash it now");
+                return;
+            }
+
+            if (!Programs.ContainsKey(program))
+            {
+                Console.WriteLine($"We do not have a program for ironing {program}");
+                return;
+            }
+
+            var range = Programs[program];
+            var random = new Random();
+            int randomTemp = random.Next(range.Min, range.Max + 1);
+
+            PerformIroning(program, randomTemp);
+        }
+
+        protected virtual void PerformIroning(string program, int temperature)
+        {
+            Console.WriteLine($"{MachineType} is ironing with {program} program at {temperature} degrees");
+            if (SteamOn)
+            {
+                Console.WriteLine("Ironing with steam");
+                SteamOn = false;
+            }
+            UsageCounter++;
+        }
     }
 
-    public virtual void TurnOn()
-    {
-
-    }
-
-    public virtual void TurnOff()
-    {
-
-    }
-
-
-}
-class Premium : Regular
-
-{
     
-}
-class Linen : Regular
-
-{
-
-    public virtual void Iron(int Iron)
+    public class Regular : IroningMachine
     {
+        public Regular() => MachineType = "Regular machine";
 
-        
-        if (Iron < 89)
+        public override void Descale()
         {
-            Console.WriteLine("Temperature too low, lowest possible is 90");
-
+            UsageCounter = 0;
+            Console.WriteLine("Machine is cleaned");
         }
-        else if (Iron >= 90 & Iron <= 230)
+    }
+
+ 
+    public class Premium : IroningMachine
+    {
+        private int SteamUsageCounter = 0;
+        private bool WaterIndicator => SteamUsageCounter >= 2;
+
+        public Premium() => MachineType = "Premium machine";
+
+        protected override void PerformIroning(string program, int temperature)
         {
-            Console.WriteLine("Iron temperature: " + Iron);
+            base.PerformIroning(program, temperature);
+
+            if (SteamOn)
+            {
+                SteamUsageCounter++;
+                if (WaterIndicator)
+                {
+                    Console.WriteLine("Water indicator light is on please add water now");
+                }
+            }
+
+            if (NeedsCleaning)
+            {
+                Descale();
+            }
         }
-        else if (Iron >= 120 & Iron <= 149)
+
+        public override void Descale()
         {
-            Console.WriteLine("Doing silk program");
-            Console.WriteLine("Iron temperature: " + Iron);
-
-
-          
+            UsageCounter = 0;
+            Console.WriteLine("Machine is cleaned");
         }
-        else if (Iron >= 150 & Iron <= 199)
-        {
-            Console.WriteLine("Doing cotton program");
-            Console.WriteLine("Iron temperature: " + Iron);
-
-
-        
-        }
-        else if (Iron >= 200 & Iron <= 230)
-        {
-            Console.WriteLine("Doing linen program");
-            Console.WriteLine("Iron temperature: " + Iron);
-         
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 
+    public class Linen : IroningMachine
+    {
+        public Linen() => MachineType = "Linen machine";
 
+        protected override void PerformIroning(string program, int temperature)
+        {
+            if (program == "Linen")
+            {
+                SteamOn = true;
+            }
 
+            base.PerformIroning(program, temperature);
+        }
 
-
-
-
-
-
-
-
-
-
+        public override void Descale()
+        {
+            UsageCounter = 0;
+            Console.WriteLine("Machine is cleaned");
+        }
+    }
 }
+   
