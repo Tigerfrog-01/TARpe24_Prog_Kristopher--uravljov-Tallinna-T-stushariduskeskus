@@ -2,8 +2,85 @@
 
 namespace ConsoleApp2
 {
- 
-    public abstract class Football
+    public class Program
+    {
+        public static void Main()
+        {
+            var normalBall = new Normal("Addidas");
+            var youthBall = new Youth("Nike");
+
+            Random random = new Random();
+
+
+            int normalGoals = 0, normalMisses = 0;
+            int youthGoals = 0, youthMisses = 0;
+            int normalOut = 0,  youthOut = 0;
+            
+            for (int i = 0; i < 20; i++)
+            {
+                double randomCoordinate = random.Next(-50, 50);
+                double ballRadius = normalBall.Diameter / 2;
+
+                if (normalBall.IsGoal(randomCoordinate, 45, ballRadius))
+                    normalGoals++;
+                else
+                    normalMisses++;
+
+                if (randomCoordinate < -45.7)
+                normalOut++;
+                if (randomCoordinate > 45.7)
+                normalOut++;
+
+
+
+                ballRadius = youthBall.Diameter / 2;
+
+                if (youthBall.IsGoal(randomCoordinate, 45, ballRadius))
+                    youthGoals++;
+                else
+                    youthMisses++;
+
+                if (randomCoordinate  < -45.7)
+                    youthOut++;
+                if (randomCoordinate > 45.7)
+                    youthOut++;
+
+            }
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine($"Normal Ball - Goals: {normalGoals}, Misses: {normalMisses}, Out:{normalOut} ");
+            Console.WriteLine($"Youth Ball - Goals: {youthGoals}, Misses: {youthMisses}, Out {youthOut} ");
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                double start = random.Next(-45, 46);
+                double end = random.Next(-45, 46);
+                double time = random.Next(1, 11);
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine($"Normal Ball Speed: {normalBall.CalculateAverageSpeed(start, end, time):F2} m/s");
+                Console.WriteLine($"Youth Ball Speed: {youthBall.CalculateAverageSpeed(start, end, time):F2} m/s");
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+
+            }
+
+
+            for (int velocity = 1; velocity <= 5; velocity++)
+            {
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine($"Normal Ball Kinetic Energy (v={velocity}): {normalBall.CalculateKineticEnergy(velocity):F2} J");
+                Console.WriteLine($"Youth Ball Kinetic Energy (v={velocity}): {youthBall.CalculateKineticEnergy(velocity):F2} J");
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            }
+
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine($"Normal Ball Code: {normalBall.GenerateUniqueCode()}");
+            Console.WriteLine($"Youth Ball Code: {youthBall.GenerateUniqueCode()}");
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+        }
+    }
+}
+public abstract class Football
     {
         protected string SponsorName;
         public double Diameter { get; protected set; }
@@ -36,7 +113,8 @@ namespace ConsoleApp2
         {
             return (Weight * Math.Pow(velocity, 2)) / 2;
         }
-    }
+  
+}
 
 
     public class Normal : Football
@@ -86,68 +164,4 @@ namespace ConsoleApp2
         }
     }
 
-    // Main class
-    public class Program
-    {
-        public static void Main()
-        {
-            var normalBall = new Normal("Adidas");
-            var youthBall = new Youth("Nike");
-
-            Random random = new Random();
-
-         
-            int normalGoals = 0, normalMisses = 0;
-            int youthGoals = 0, youthMisses = 0;
-
-            for (int i = 0; i < 20; i++)
-            {
-                double randomCoordinate = random.Next(-50, 51);
-                double ballRadius = normalBall.Diameter / 2;
-
-                if (normalBall.IsGoal(randomCoordinate, 45, ballRadius))
-                    normalGoals++;
-                else
-                    normalMisses++;
-
-                ballRadius = youthBall.Diameter / 2;
-
-                if (youthBall.IsGoal(randomCoordinate, 45, ballRadius))
-                    youthGoals++;
-                else
-                    youthMisses++;
-            }
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine($"Normal Ball - Goals: {normalGoals}, Misses: {normalMisses}");
-            Console.WriteLine($"Youth Ball - Goals: {youthGoals}, Misses: {youthMisses}");
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            
-
-            for (int i = 0; i < 10; i++)
-            {
-                double start = random.Next(-45, 46);
-                double end = random.Next(-45, 46);
-                double time = random.Next(1, 11);
-                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");   
-                Console.WriteLine($"Normal Ball Speed: {normalBall.CalculateAverageSpeed(start, end, time):F2} m/s");
-                Console.WriteLine($"Youth Ball Speed: {youthBall.CalculateAverageSpeed(start, end, time):F2} m/s");
-                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                
-            }
-
-         
-            for (int velocity = 1; velocity <= 5; velocity++)
-            {
-                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine($"Normal Ball Kinetic Energy (v={velocity}): {normalBall.CalculateKineticEnergy(velocity):F2} J");
-                Console.WriteLine($"Youth Ball Kinetic Energy (v={velocity}): {youthBall.CalculateKineticEnergy(velocity):F2} J");
-                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            }
-
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine($"Normal Ball Code: {normalBall.GenerateUniqueCode()}");
-            Console.WriteLine($"Youth Ball Code: {youthBall.GenerateUniqueCode()}");
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-        }
-    }
-}
+    
