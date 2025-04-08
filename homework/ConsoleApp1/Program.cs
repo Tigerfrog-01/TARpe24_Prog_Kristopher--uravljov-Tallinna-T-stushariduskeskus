@@ -1,5 +1,9 @@
 ﻿using System.ComponentModel.Design;
 using System.IO;
+using System.Net;
+using System.Net.WebSockets;
+using System.Security.Cryptography.X509Certificates;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ConsoleApp1
 {
@@ -7,27 +11,32 @@ namespace ConsoleApp1
     {
         public static void Main()
         {
+
+
             var regular = new Regular();
             var premium = new Premium();
             var linen = new Linen();
+
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             regular.TurnOn();
-            regular.Iron(170);
-            regular.Steam();        
-            regular.ProgramName("Cotton");
+            regular.Iron(120);
+            regular.Steam();
+            regular.ProgramName("Linen");
             regular.ProgramName("Silk");
-            regular.Iron(90);
+            regular.Iron(320);
             regular.Descale();
             regular.ProgramName("Silk");
             regular.TurnOff();
+
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             premium.TurnOn();
             premium.Iron(150);
             premium.Steam();
-            premium.Iron(160);
+            premium.Iron(50);
             premium.Iron(170);
             premium.Iron(180);
             premium.TurnOff();
+
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             linen.TurnOn();
             linen.ProgramName("Linen");
@@ -35,6 +44,7 @@ namespace ConsoleApp1
             linen.Descale();
             linen.Iron(200);
             linen.TurnOff();
+
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
         }
     }
@@ -47,9 +57,9 @@ namespace ConsoleApp1
         void Steam();
         void TurnOn();
         void TurnOff();
+
     }
 
-   
     public abstract class IroningMachine : IIroningMachine
     {
         protected string MachineType;
@@ -88,7 +98,7 @@ namespace ConsoleApp1
         {
             if (NeedsCleaning)
             {
-                Console.WriteLine("The machine has already been used 3 times please wash it now");
+                Console.WriteLine("The machine has already been used 3 times and needs cleaning");
                 return;
             }
 
@@ -104,7 +114,7 @@ namespace ConsoleApp1
 
             if (program == null)
             {
-                Console.WriteLine("not correct temperature range for ironing");
+                Console.WriteLine("Invalid temperature range for ironing");
                 return;
             }
 
@@ -115,13 +125,13 @@ namespace ConsoleApp1
         {
             if (NeedsCleaning)
             {
-                Console.WriteLine("The machine has already been used 3 times please wash it now");
+                Console.WriteLine("The machine has already been used 3 times and needs cleaning");
                 return;
             }
 
             if (!Programs.ContainsKey(program))
             {
-                Console.WriteLine($"We do not have a program for ironing {program}");
+                Console.WriteLine($"We do not have a program for ironing '{program}'.");
                 return;
             }
 
@@ -144,7 +154,6 @@ namespace ConsoleApp1
         }
     }
 
-    
     public class Regular : IroningMachine
     {
         public Regular() => MachineType = "Regular machine";
@@ -154,9 +163,19 @@ namespace ConsoleApp1
             UsageCounter = 0;
             Console.WriteLine("Machine is cleaned");
         }
+
+        protected override void PerformIroning(string program, int temperature)
+        {
+            if (program == "Linen")
+            {
+                Console.WriteLine("This machine cannot perform the Linen program");
+                return;
+            }
+
+            base.PerformIroning(program, temperature);
+        }
     }
 
- 
     public class Premium : IroningMachine
     {
         private int SteamUsageCounter = 0;
@@ -166,6 +185,12 @@ namespace ConsoleApp1
 
         protected override void PerformIroning(string program, int temperature)
         {
+            if (program == "Linen")
+            {
+                Console.WriteLine("This machine cannot perform the Linen program");
+                return;
+            }
+
             base.PerformIroning(program, temperature);
 
             if (SteamOn)
@@ -173,7 +198,7 @@ namespace ConsoleApp1
                 SteamUsageCounter++;
                 if (WaterIndicator)
                 {
-                    Console.WriteLine("Water indicator light is on please add water now");
+                    Console.WriteLine("Water indicator light is on, please add water to it");
                 }
             }
 
@@ -186,10 +211,9 @@ namespace ConsoleApp1
         public override void Descale()
         {
             UsageCounter = 0;
-            Console.WriteLine("Machine is cleaned");
+            Console.WriteLine("Machine is cleaned automatically");
         }
     }
-
 
     public class Linen : IroningMachine
     {
@@ -212,4 +236,4 @@ namespace ConsoleApp1
         }
     }
 }
-   
+
