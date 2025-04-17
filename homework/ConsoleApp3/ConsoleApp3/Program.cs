@@ -7,80 +7,94 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-         VATCalc VAT = new VATCalc();
-         VAT.FindVATFromPrice(20);
-         VAT.FindPrice("true" , 20);
-         VAT.FindPriceBasedOnTax(4);
-
+            VATCalc VAT = new VATCalc();
+            VAT.FindVATFromPrice(20);
+            VAT.FindPrice("true", 20);
+            VAT.FindPrice("false", 20);
+            VAT.FindPriceBasedOnTax(4);
+            if (VAT.IsTaxPercent20())
+            {
+                Console.WriteLine("The VAT rate is 20%");
+            }
+            else
+            {
+                Console.WriteLine("The VAT rate is not 20%");
+            }
         }
     }
-}
 
-class VATCalc
-{
-    private double _VATPerc;
-    private double _Value;
-
-    public VATCalc()
+    class VATCalc
     {
+        private double _VATPerc = 20.0;
+        private double _Value;
 
-
-    }
-    public VATCalc(double VATPercentage, double Price)
-    {
-
-        this._Value = Price;
-
-    }
-
-    public void FindVATFromPrice(double price)
-    {
-        double VATPercentage = 20;
-        double Transfrom = VATPercentage / 100;
-        double VATprice = Transfrom * price;
-        double WithoutVat = price - VATprice;
-        Console.WriteLine("VAT is:" + VATprice);
-    }
-    public void FindPrice(string YesorNo, double price)
-    {
-
-        if (YesorNo == "true")
+        public VATCalc()
         {
-            double tax = 0.166667;
-            double FindTax = price * tax;
-            double number = 0.00334;
-            Console.WriteLine("Tax: " + (FindTax - number));
-            double WithTax = price - FindTax;
-            Console.WriteLine("Without tax is: " + Math.Round(WithTax, 2));
-
         }
-        else if (YesorNo == "false")
+
+        public VATCalc(double VATPercentage, double Price)
         {
-            double VATPercentage = 20;
+            this._VATPerc = VATPercentage;
+            this._Value = Price;
+        }
+
+        public void FindVATFromPrice(double price)
+        {
+            double VATPercentage = _VATPerc;
             double Transfrom = VATPercentage / 100;
             double VATprice = Transfrom * price;
-            double PriceWithVat = VATPercentage + VATprice;
-            Console.WriteLine("With tax is: " + PriceWithVat);
+            double WithoutVat = price - VATprice;
+            Console.WriteLine("VAT is:" + VATprice);
         }
-        else
+        public void FindPrice(string YesorNo, double price)
         {
-            Console.WriteLine("Invalid answer either say true or false");
 
+            if (YesorNo == "true")
+            {
+                double tax = 0.166667;
+                double FindTax = price * tax;
+                double number = 0.00334;
+                Console.WriteLine("Tax: " + (FindTax - number));
+                double WithTax = price - FindTax;
+                Console.WriteLine("Without tax is: " + Math.Round(WithTax, 2));
+
+            }
+            else if (YesorNo == "false")
+            {
+                double VATPercentage = 20;
+                double Transfrom = VATPercentage / 100;
+                double VATprice = Transfrom * price;
+                double PriceWithVat = VATPercentage + VATprice;
+                Console.WriteLine("With tax is: " + PriceWithVat);
+            }
+            else
+            {
+                Console.WriteLine("Invalid answer either say true or false");
+            }
+        }
+        public void FindPriceBasedOnTax(double tax)
+        {
+
+            double FindPrice = 0.166667;
+            double WithVAT = tax / FindPrice;
+
+
+            Console.WriteLine("Price is: " + (Math.Round(WithVAT, 2) - tax));
+        }
+        public bool IsTaxPercent20()
+        {
+            return Math.Abs(_VATPerc - 20.0)
+            < 0.0001;
         }
 
-    }
-    public void FindPriceBasedOnTax(double tax)
-    {
 
-        double FindPrice = 0.166667;
-        double WithVAT = tax / FindPrice;
 
-       
-        Console.WriteLine("Price is: " + (Math.Round(WithVAT, 2) - tax));
+
+
 
 
 
     }
-
 }
+
 
