@@ -25,7 +25,7 @@ namespace ConsoleApp1
     {
         public double _VATPerc = 20.0;
         public double _Value;
-
+        
         public VATCalc()
         {
         }
@@ -50,24 +50,29 @@ namespace ConsoleApp1
 
             if (YesorNo)
             {
+                
+                double tax = 1 + _VATPerc / 100;
 
-                double tax = 0.166667;
-                double FindTax = price * tax;
-                double number = 0.00334;
-                Console.WriteLine("Tax: " + (FindTax - number));
-                double WithTax = price - FindTax;
-                Console.WriteLine("Without tax is: " + Math.Round(WithTax, 2));
+                double result = (price / tax);
+
+                result = Math.Ceiling(result * 100) / 100;
+
+                Console.WriteLine(result);
+
                 return true;
-
             }
-            else
-            {
 
-                double VATPercentage = 20;
-                double Transfrom = VATPercentage / 100;
-                double VATprice = Transfrom * price;
-                double PriceWithVat = VATPercentage + VATprice;
+            else
+
+            {
+                double Transfrom = -_VATPerc / 100;
+
+                double VATprice = Math.Abs(Transfrom * price);
+
+                double PriceWithVat = price + VATprice;   
+                
                 Console.WriteLine("With tax is: " + PriceWithVat);
+
                 return false;
             }
 
