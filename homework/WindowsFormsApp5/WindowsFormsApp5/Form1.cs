@@ -23,9 +23,10 @@ namespace WindowsFormsApp5
         {
             table.Columns.Add("Book title", typeof(string));
             table.Columns.Add("Lender", typeof(string));
-            
 
-           dataGridView1.DataSource = table;
+
+            dataGridView1.DataSource = table;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +44,35 @@ namespace WindowsFormsApp5
                     row[j] = values[j].Trim();
                 }
                 table.Rows.Add(row);
+            }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                saveFileDialog.Title = "Save Data as Text File";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (TextWriter writer = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                        {
+                            for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                            {
+                                writer.Write(dataGridView1.Rows[i].Cells[j].Value?.ToString());
+                                if (j < dataGridView1.Columns.Count - 1)
+                                    writer.Write("/");
+                            }
+                            writer.WriteLine();
+                        }
+                    }
+                    MessageBox.Show("Data Exported!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
             }
         }
     }
