@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 
 namespace WindowsFormsApp5
 {
     public partial class Form1 : Form
     {
+        List<int> trueIndexes = new List<int>();
         public Form1()
         {
             InitializeComponent();
@@ -21,10 +23,11 @@ namespace WindowsFormsApp5
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             table.Columns.Add("Book title", typeof(string));
             table.Columns.Add("Lender", typeof(string));
 
-
+       
             dataGridView1.DataSource = table;
 
         }
@@ -42,6 +45,7 @@ namespace WindowsFormsApp5
                 for (int j = 0; j < values.Length; j++)
                 {
                     row[j] = values[j].Trim();
+                    
                 }
                 table.Rows.Add(row);
             }
@@ -64,16 +68,22 @@ namespace WindowsFormsApp5
                             {
                                 writer.Write(dataGridView1.Rows[i].Cells[j].Value?.ToString());
                                 if (j < dataGridView1.Columns.Count - 1)
+                                    
                                     writer.Write("/");
                             }
                             writer.WriteLine();
                         }
                     }
                     MessageBox.Show("Data Exported!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
-
-
             }
         }
-    }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
+        }
+        }
 }
