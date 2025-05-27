@@ -51,7 +51,7 @@ namespace WindowsFormsApp7
             (
             (byte)random.Next(0, 255),
             (byte)random.Next(0, 255),
-            (byte)random.Next(0, 255)), 4);
+            (byte)random.Next(0, 255)), 10);
 
           
             Graphics g = this.CreateGraphics();

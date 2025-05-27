@@ -15,19 +15,17 @@ namespace WindowsFormsApp5
     public partial class Form1 : Form
     {
         List<int> trueIndexes = new List<int>();
+        DataTable table = new DataTable();
         public Form1()
         {
             InitializeComponent();
         }
-        DataTable table = new DataTable();
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            table.Columns.Add("IsReturned?", typeof(bool));
             table.Columns.Add("Book title", typeof(string));
             table.Columns.Add("Lender", typeof(string));
-
-       
             dataGridView1.DataSource = table;
 
         }
@@ -35,18 +33,18 @@ namespace WindowsFormsApp5
         private void button1_Click(object sender, EventArgs e)
         {
             string[] lines = File.ReadAllLines(@"C:\Users\opilane\Downloads\file.txt");
-            string[] values;
 
-            for (int i = 0; i < lines.Length; i++)
+            foreach (string line in lines)
             {
-                values = lines[i].ToString().Split('/');
-                string[] row = new string[values.Length];
+                string[] values = line.Split('/');
+                object[] row = new object[values.Length];
 
-                for (int j = 0; j < values.Length; j++)
+                row[0] = values[0].Trim().ToLower() == "true";
+                for (int j = 1; j < values.Length; j++)
                 {
                     row[j] = values[j].Trim();
-                    
                 }
+
                 table.Rows.Add(row);
             }
         }
@@ -62,23 +60,25 @@ namespace WindowsFormsApp5
                 {
                     using (TextWriter writer = new StreamWriter(saveFileDialog.FileName))
                     {
-                        for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
-                            for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                            if (!row.IsNewRow)
                             {
-                                writer.Write(dataGridView1.Rows[i].Cells[j].Value?.ToString());
-                                if (j < dataGridView1.Columns.Count - 1)
-                                    
+                                writer.Write((bool)row.Cells[0].Value ? "true" : "false");
+                                for (int j = 1; j < dataGridView1.Columns.Count; j++)
+                                {
                                     writer.Write("/");
+                                    writer.Write(row.Cells[j].Value?.ToString());
+                                }
+                                writer.WriteLine();
                             }
-                            writer.WriteLine();
                         }
                     }
                     MessageBox.Show("Data Exported!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
         }
+    
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
