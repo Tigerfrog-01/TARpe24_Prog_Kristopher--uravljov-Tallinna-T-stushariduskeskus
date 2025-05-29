@@ -31,13 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.playgroundPanel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.greenballtimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // playgroundPanel
             // 
-            this.playgroundPanel.Location = new System.Drawing.Point(12, 12);
+            this.playgroundPanel.Location = new System.Drawing.Point(20, 18);
+            this.playgroundPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.playgroundPanel.Name = "playgroundPanel";
-            this.playgroundPanel.Size = new System.Drawing.Size(776, 426);
+            this.playgroundPanel.Size = new System.Drawing.Size(1293, 655);
             this.playgroundPanel.TabIndex = 0;
             this.playgroundPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PlayGroundPaint);
             // 
@@ -45,12 +47,17 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // greenballtimer
+            // 
+            this.greenballtimer.Tick += new System.EventHandler(this.greenballtimer_Tick);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1333, 692);
             this.Controls.Add(this.playgroundPanel);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1KeyDown);
@@ -62,6 +69,7 @@
 
         private System.Windows.Forms.Panel playgroundPanel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer greenballtimer;
     }
 }
 
