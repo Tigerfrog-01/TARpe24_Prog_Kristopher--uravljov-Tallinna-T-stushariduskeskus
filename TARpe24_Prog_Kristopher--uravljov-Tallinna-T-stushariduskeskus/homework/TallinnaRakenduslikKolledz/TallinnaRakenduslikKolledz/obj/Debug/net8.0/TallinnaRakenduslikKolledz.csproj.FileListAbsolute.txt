@@ -21,3 +21,4 @@ C:\Users\opilane\source\repos\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stush
 C:\Users\opilane\source\repos\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\homework\TallinnaRakenduslikKolledz\TallinnaRakenduslikKolledz\obj\Debug\net8.0\TallinnaRakenduslikKolledz.dll
 C:\Users\opilane\source\repos\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\homework\TallinnaRakenduslikKolledz\TallinnaRakenduslikKolledz\obj\Debug\net8.0\refint\TallinnaRakenduslikKolledz.dll
 C:\Users\opilane\source\repos\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\homework\TallinnaRakenduslikKolledz\TallinnaRakenduslikKolledz\obj\Debug\net8.0\TallinnaRakenduslikKolledz.pdb
+C:\Users\opilane\source\repos\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\homework\TallinnaRakenduslikKolledz\TallinnaRakenduslikKolledz\obj\Debug\net8.0\TallinnaRakenduslikKolledz.csproj.AssemblyReference.cache
