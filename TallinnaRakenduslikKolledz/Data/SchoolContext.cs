@@ -14,7 +14,9 @@ namespace TallinnaRakenduslikKolledz.Data
 
         public DbSet<Student> Students { get; set; }
 
-       
+        
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().ToTable("Course");
