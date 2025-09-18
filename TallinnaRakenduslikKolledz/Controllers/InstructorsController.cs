@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,13 +30,14 @@ namespace TallinnaRakenduslikKolledz.Controllers
         {
             var instructor = new Instructor();
             instructor.CourseAssigments = new List<CourseAssigment>();
+
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Instructor instructor,string selectedCourses)
         {
-            if (selectedCourses == null)
+            if (selectedCourses != null)
             {
                 instructor.CourseAssigments = new List<CourseAssigment>();
 
@@ -49,6 +51,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
                     instructor.CourseAssigments.Add(courseToAdd);
                 }
             }
+            ModelState.Remove("selectedCourses");
             if (ModelState.IsValid)
             {
                 _context.Add(instructor);
@@ -58,9 +61,36 @@ namespace TallinnaRakenduslikKolledz.Controllers
             PopulateAssignedCourseData(instructor);
             return View(instructor);
         }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id, bool? saveChangesError = false)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var deletableInstructor = await _context.Instructors
+                .FirstOrDefaultAsync(s => s.ID == id);
+            if (deletableInstructor == null)
+            {
+                return NotFound();
+            }
+            return View(deletableInstructor);
+        }
+        [HttpPost,ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            Instructor deletableInstructor = await  _context.Instructors
+                .SingleAsync(i => i.ID == id);
+            _context.Instructors.Remove(deletableInstructor);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
         private void PopulateAssignedCourseData(Instructor instructor)
         {
             var allcourses = _context.Courses; //leiame kõik kursused
+
             var instructorCourses = new HashSet<int>(instructor.CourseAssigments.Select(c => c.CourseID));
             // valime kursused kus courseid on õpetajal olemas
             var vm = new List<AssignedCourseData>();
