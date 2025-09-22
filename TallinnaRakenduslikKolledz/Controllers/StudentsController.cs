@@ -89,7 +89,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             if (student == null)
             {
                 return NotFound();
-
+                
             }
 
             return View(student);
@@ -97,5 +97,42 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
 
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var student = await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
+            
+            if (student == null)
+            {
+                return NotFound();
+
+            }
+
+            return View(student);
+
+
+        }
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+
+
+        public async Task<IActionResult> EditConfirm([Bind
+        ("Id,LastName,FirstName,EnrollmentDate,Nationality")] Student student)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Students.Update(student);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+
+            }
+            return NotFound();
+           
+        }
+
     }
 }

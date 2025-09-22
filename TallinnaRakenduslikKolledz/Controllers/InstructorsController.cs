@@ -61,6 +61,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             PopulateAssignedCourseData(instructor);
             return View(instructor);
         }
+        //------------------------------------------------------------------------------------------------------------------
         [HttpGet]
         public async Task<IActionResult> Delete(int? id, bool? saveChangesError = false)
         {
@@ -86,6 +87,37 @@ namespace TallinnaRakenduslikKolledz.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+        //---------------------------------------------------------------------------------------------
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id, bool? saveChangesError = false)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var UpdateInstructor = await _context.Instructors
+                .FirstOrDefaultAsync(s => s.ID == id);
+            if (UpdateInstructor == null)
+            {
+                return NotFound();
+            }
+            return View(UpdateInstructor);
+        }
+
+
+
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditConfirm(int id)
+        {
+            Instructor UpdateInstructor = await _context.Instructors
+                .SingleAsync(i => i.ID == id);
+            _context.Instructors.Update(UpdateInstructor);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        //----------------------------------------------------------------------------------------------
 
         private void PopulateAssignedCourseData(Instructor instructor)
         {
