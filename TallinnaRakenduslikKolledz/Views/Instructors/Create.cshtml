@@ -18,6 +18,45 @@
 			</div>
 
 			<div class="form-group">
+				<label asp-for="FirstName"></label>
+				<input asp-for="FirstName" class="form-control" />
+				<span asp validation-for="FirstName" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Nationality"></label>
+				<input asp-for="Nationality" class="form-control" />
+				<span asp validation-for="Nationality" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Religion"></label>
+				<input asp-for="Religion" class="form-control" />
+				<span asp validation-for="Religion" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Gender"></label>
+				<input asp-for="Gender" class="form-control" />
+				<span asp validation-for="Gender" class="text-danger"></span>
+			</div>
+
+
+			<div class="form-group">
+				<label asp-for="Experience"></label>
+				<input asp-for="Experience" class="form-control" />
+				<span asp validation-for="Experience" class="text-danger"></span>
+			</div>
+
+
+			<div class="form-group">
+				<label asp-for="LastJobPlace"></label>
+				<input asp-for="LastJobPlace" class="form-control" />
+				<span asp validation-for="LastJobPlace" class="text-danger"></span>
+			</div>
+			
+
+			<div class="form-group">
 
 				<div class="col-md-offset-2 col-md-10">
 					<table>
@@ -30,7 +69,7 @@
 		
 		</div>
 		<div>
-		<input type="submit" value"Sisesta" class="btn-primary btn-primary"/>
+				<input type="submit" value="Sisesta" class="btn btn-primary" />
 		</div>
 		<div>
 		<a asp-action="Index" class="btn-primary btn-danger">Tühista lisamine</a>
@@ -41,8 +80,6 @@
 </div>
 </div>
 
-<div>
-<a asp-action="Index" >tühista lisamine</a>
-</div>
+
 
 

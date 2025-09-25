@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using TallinnaRakenduslikKolledz.Data;
 
@@ -17,6 +18,7 @@ namespace TallinnaRakenduslikKolledz
 
 
             var app = builder.Build();
+            CreateDBIFNotExists(app);
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -38,6 +40,26 @@ namespace TallinnaRakenduslikKolledz
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+        }
+
+        private static void CreateDBIFNotExists(IHost app)
+        {
+          using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<SchoolContext>();
+                    DbInitializer.Intialize(context);
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "Error occured on creating DB");
+
+                    
+                }
+            }
         }
     }
 }

@@ -5,10 +5,10 @@ namespace TallinnaRakenduslikKolledz.Models
     public class Department
     {
         [Key]
-        public int DepartmentID { get; set; }
-        public string Name { get; set; }
-        public decimal Budget { get; set; }
-        public DateTime StartDate { get; set; }
+        public int?  DepartmentID { get; set; }
+        public string? Name { get; set; }
+        public decimal? Budget { get; set; }
+        public DateTime? StartDate { get; set; }
         public int? InstructorID { get; set; }
 
         public Instructor? Adminstrator { get; set; }
@@ -17,8 +17,8 @@ namespace TallinnaRakenduslikKolledz.Models
         public byte? RowVersion { get; set; }
 
         public int? StudentsUnhappy { get; set; }
-        public string SchoolName { get; set; }
-        public string Geography { get; set; }
+        public string? SchoolName { get; set; }
+        public string? Geography { get; set; }
 
 
     }

@@ -33,7 +33,7 @@ namespace TallinnaRakenduslikKolledz.Migrations
                     b.Property<int>("Credits")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DepartmentID")
+                    b.Property<int>("DepartmentID")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -72,34 +72,31 @@ namespace TallinnaRakenduslikKolledz.Migrations
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Department", b =>
                 {
-                    b.Property<int>("DepartmentID")
+                    b.Property<int?>("DepartmentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("DepartmentID"));
 
-                    b.Property<decimal>("Budget")
+                    b.Property<decimal?>("Budget")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Geography")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("InstructorID")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte?>("RowVersion")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("SchoolName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("StudentsUnhappy")
@@ -230,15 +227,19 @@ namespace TallinnaRakenduslikKolledz.Migrations
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Course", b =>
                 {
-                    b.HasOne("TallinnaRakenduslikKolledz.Models.Department", null)
+                    b.HasOne("TallinnaRakenduslikKolledz.Models.Department", "Department")
                         .WithMany("Courses")
-                        .HasForeignKey("DepartmentID");
+                        .HasForeignKey("DepartmentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.CourseAssigment", b =>
                 {
                     b.HasOne("TallinnaRakenduslikKolledz.Models.Course", "Course")
-                        .WithMany()
+                        .WithMany("courseAssigments")
                         .HasForeignKey("CourseID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -296,6 +297,8 @@ namespace TallinnaRakenduslikKolledz.Migrations
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Course", b =>
                 {
                     b.Navigation("Enrollments");
+
+                    b.Navigation("courseAssigments");
                 });
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Department", b =>

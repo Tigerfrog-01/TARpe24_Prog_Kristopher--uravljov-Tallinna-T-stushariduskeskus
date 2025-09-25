@@ -123,7 +123,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
         {
             var allcourses = _context.Courses; //leiame kõik kursused
 
-            var instructorCourses = new HashSet<int>(instructor.CourseAssigments.Select(c => c.CourseID));
+            var instructorsCourses = new HashSet<int>(instructor.CourseAssigments.Select(c => c.CourseID));
             // valime kursused kus courseid on õpetajal olemas
             var vm = new List<AssignedCourseData>();
             foreach (var course in allcourses)
@@ -132,7 +132,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
                     {
                     CourseID=course.CourseID,
                     Title = course.Title,
-                    Assigned= instructorCourses.Contains(course.CourseID)
+                    Assigned= instructorsCourses.Contains(course.CourseID)
                     });
 
             }

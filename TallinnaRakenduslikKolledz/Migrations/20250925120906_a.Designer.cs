@@ -12,8 +12,8 @@ using TallinnaRakenduslikKolledz.Data;
 namespace TallinnaRakenduslikKolledz.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250924091539_departments")]
-    partial class departments
+    [Migration("20250925120906_a")]
+    partial class a
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,34 +75,31 @@ namespace TallinnaRakenduslikKolledz.Migrations
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Department", b =>
                 {
-                    b.Property<int>("DepartmentID")
+                    b.Property<int?>("DepartmentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("DepartmentID"));
 
-                    b.Property<decimal>("Budget")
+                    b.Property<decimal?>("Budget")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Geography")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("InstructorID")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte?>("RowVersion")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("SchoolName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("StudentsUnhappy")
