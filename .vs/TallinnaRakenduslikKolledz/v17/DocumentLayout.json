@@ -216,8 +216,7 @@
               "ViewState": "AgIAAC8AAAAAAAAAAAAAwDYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-09-18T09:02:18.012Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -241,8 +240,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Departments\\Create.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAAAAACgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-25T08:55:08.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-25T08:55:08.631Z"
             },
             {
               "$type": "Document",
@@ -314,8 +312,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Departments\\Delete.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-25T10:09:04.151Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-25T10:09:04.151Z"
             },
             {
               "$type": "Document",
@@ -327,8 +324,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Departments\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-24T09:25:49.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T09:25:49.869Z"
             },
             {
               "$type": "Document",
@@ -340,8 +336,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Models\\ErrorViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T08:51:12.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T08:51:12.433Z"
             },
             {
               "$type": "Document",
@@ -353,8 +348,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Instructors\\Index.cshtml",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-15T11:44:56.558Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T11:44:56.558Z"
             },
             {
               "$type": "Document",
@@ -366,8 +360,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Instructors\\Delete.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T10:37:40.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T10:37:40.676Z"
             },
             {
               "$type": "Document",
@@ -377,7 +370,7 @@
               "RelativeDocumentMoniker": "TallinnaRakenduslikKolledz\\Controllers\\CourseController.cs",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\TallinnaRakenduslikKolledz\\Controllers\\CourseController.cs",
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Controllers\\CourseController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA5wCAAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-25T12:55:10.787Z",
               "EditorCaption": ""
@@ -416,8 +409,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Courses\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-25T13:23:17.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-25T13:23:17.871Z"
             },
             {
               "$type": "Document",
@@ -429,8 +421,7 @@
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\TallinnaRakenduslikKolledz.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-08T11:15:53.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T11:15:53.665Z"
             },
             {
               "$type": "Document",
