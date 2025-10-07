@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Io3XS0XFtGsMGSfDr8bZf91ULnFRF9+Pcq4KTb5Pt4g=",
+  "Hash": "GybeCDNfeDyi9xdRIQDcR0HDyVYN/NeWR8JG5RjIw+w=",
   "Source": "TallinnaRakenduslikKolledz",
   "BasePath": "_content/TallinnaRakenduslikKolledz",
   "Mode": "Default",
@@ -9,10 +9,10 @@
   "DiscoveryPatterns": [],
   "Assets": [
     {
-      "Identity": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css",
+      "Identity": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css",
       "SourceId": "TallinnaRakenduslikKolledz",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/TallinnaRakenduslikKolledz",
       "RelativePath": "TallinnaRakenduslikKolledz#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -27,13 +27,13 @@
       "Integrity": "HAG/sf2u7dOYqguiyR5UzVy+xIQ0foSAWjeuNodQ+DM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css"
+      "OriginalItemSpec": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css"
     },
     {
-      "Identity": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css",
+      "Identity": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css",
       "SourceId": "TallinnaRakenduslikKolledz",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/TallinnaRakenduslikKolledz",
       "RelativePath": "TallinnaRakenduslikKolledz#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "Integrity": "HAG/sf2u7dOYqguiyR5UzVy+xIQ0foSAWjeuNodQ+DM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css"
     }
   ],
   "Endpoints": [
     {
       "Route": "TallinnaRakenduslikKolledz.bundle.scp.css",
-      "AssetFile": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css",
+      "AssetFile": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -75,7 +75,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 02 Oct 2025 12:56:07 GMT"
+          "Value": "Tue, 07 Oct 2025 09:44:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -91,7 +91,7 @@
     },
     {
       "Route": "TallinnaRakenduslikKolledz.kwlcdyl32q.bundle.scp.css",
-      "AssetFile": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css",
+      "AssetFile": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TallinnaRakenduslikKolledz.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -112,7 +112,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 02 Oct 2025 12:56:07 GMT"
+          "Value": "Tue, 07 Oct 2025 09:44:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -136,7 +136,7 @@
     },
     {
       "Route": "TallinnaRakenduslikKolledz.kwlcdyl32q.styles.css",
-      "AssetFile": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css",
+      "AssetFile": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -157,7 +157,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 02 Oct 2025 12:56:07 GMT"
+          "Value": "Tue, 07 Oct 2025 09:44:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -181,7 +181,7 @@
     },
     {
       "Route": "TallinnaRakenduslikKolledz.styles.css",
-      "AssetFile": "C:\\Users\\opilane\\source\\repos\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css",
+      "AssetFile": "C:\\Users\\opilane\\Source\\Repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TallinnaRakenduslikKolledz.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -202,7 +202,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 02 Oct 2025 12:56:07 GMT"
+          "Value": "Tue, 07 Oct 2025 09:44:22 GMT"
         },
         {
           "Name": "Cache-Control",
