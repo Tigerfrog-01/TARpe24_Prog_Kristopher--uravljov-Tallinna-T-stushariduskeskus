@@ -23,12 +23,13 @@ namespace TallinnaRakenduslikKolledz.Controllers
             return View(await schoolContext.ToListAsync());
 
         }
-
+        //------------------------------------------------------------------------------------------------------------
         [HttpGet]
         public IActionResult Create()
         {
-            ViewData["InstructorID"] = new SelectList(_context.Instructors, "Id", "FullName");
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID,FirstName");
             return View();
+
         }
 
         [HttpPost]
@@ -41,11 +42,32 @@ namespace TallinnaRakenduslikKolledz.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["InstructorID"] = new SelectList(_context.Instructors, "Id", "FullName", department.InstructorID);
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID","FirstName", department.InstructorID);
+            return View(department);
+
+            
+        }
+        //------------------------------------------------------------------------------------------------------------
+        [HttpGet]
+
+        public async Task<IActionResult> ViewDetails(int? ID)
+        {
+            if (ID == null)
+            {
+                return NotFound();
+            }
+            var department = await _context.Departments.FirstOrDefaultAsync(m => m.DepartmentID == ID);
+            if (department == null)
+            {
+                return NotFound();
+
+            }
+
             return View(department);
         }
-        [HttpGet]
-        public async Task<IActionResult> Delete(int? id)
+            //------------------------------------------------------------------------------------------------------------
+            [HttpGet]
+        public async Task<IActionResult> ViewDelete(int? id)
         {
             if (id == null)
             {
@@ -63,7 +85,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(Department department)
+        public async Task<IActionResult> ViewDelete(Department department)
         {
             if (await _context.Departments.AnyAsync(m => m.DepartmentID == department.DepartmentID))
                 {

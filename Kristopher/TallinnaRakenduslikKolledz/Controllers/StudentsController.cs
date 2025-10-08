@@ -23,6 +23,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
         {
             return View(await _context.Students.ToListAsync());
         }
+        //---------------------------------------------------------------------------
         [HttpGet]
 
         public IActionResult Create()
@@ -45,6 +46,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             }
             return View(student);
         }
+        //------------------------------------------------------------------------------------------------
 
         [HttpGet]
 

@@ -24,7 +24,7 @@
 				<td>@Html.DisplayFor(modelitem => department.Name) </td>
 				<td>@Html.DisplayFor(modelitem => department.Budget) </td>
 				<td>@Html.DisplayFor(modelitem => department.StartDate) </td>
-				<td>@Html.DisplayFor(modelitem => department.Adminstrator)</td>
+				<td>@Html.DisplayFor(modelitem => department.Adminstrator.FullName)</td>
 				<td>@Html.DisplayFor(modelitem => department.SchoolName) </td>
 				<td>@Html.DisplayFor(modelitem => department.Geography) </td>
 				<td>
@@ -33,8 +33,8 @@
 						@*/*Vaata*/*@
 						@*/*Vaata Adminit*/*@
 						@*/*Kustuta*/*@
-						<a asp-action="Delete" asp-route-id="@department.DepartmentID" class="btn btn-danger">Eemalda</a>
-
+						<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" class="btn btn-danger">Eemalda</a>
+					<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" class="btn btn-danger">Vaata</a>
 
 				</td>
 			</tr>
