@@ -25,50 +25,58 @@ namespace TallinnaRakenduslikKolledz.Controllers
         }
         //------------------------------------------------------------------------------------------------------------
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult EditCreate( string mode)
         {
+            
+
+
             ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID,FirstName");
             return View();
 
+            ViewBag.Mode = mode;
+    
         }
+     
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department)
+        public async Task<IActionResult> EditCreate([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department,string mode)
         {
             if (ModelState.IsValid)
             {
+                if(mode == "Create")
+                { 
                 _context.Add(department);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
+                }
             }
+            if (ModelState.IsValid)
+            {
+                if(mode == "Edit")
+                    _context.Update(department);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Mode = mode;
             ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID","FirstName", department.InstructorID);
             return View(department);
 
+
             
         }
+
+
+
         //------------------------------------------------------------------------------------------------------------
-        [HttpGet]
 
-        public async Task<IActionResult> ViewDetails(int? ID)
-        {
-            if (ID == null)
-            {
-                return NotFound();
-            }
-            var department = await _context.Departments.FirstOrDefaultAsync(m => m.DepartmentID == ID);
-            if (department == null)
-            {
-                return NotFound();
-
-            }
-
-            return View(department);
-        }
-            //------------------------------------------------------------------------------------------------------------
             [HttpGet]
         public async Task<IActionResult> ViewDelete(int? id,string mode)
         {
+
+
+
             if (id == null)
             {
                 return NotFound();
@@ -82,18 +90,39 @@ namespace TallinnaRakenduslikKolledz.Controllers
                 return NotFound();
 
             }
+
+          
+
+
+
+
             return View(department);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ViewDelete(Department department)
+        public async Task<IActionResult> ViewDelete(Department department,string mode)
         {
             if (await _context.Departments.AnyAsync(m => m.DepartmentID == department.DepartmentID))
                 {
                 _context.Departments.Remove(department);
                 await _context.SaveChangesAsync();
             }
+
+            if (mode == "Edit")
+            {
+                _context.Departments.Update(department);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+
+            }
+
+
             return RedirectToAction("Index");
+
+
+
+
+
         }
       
     }
