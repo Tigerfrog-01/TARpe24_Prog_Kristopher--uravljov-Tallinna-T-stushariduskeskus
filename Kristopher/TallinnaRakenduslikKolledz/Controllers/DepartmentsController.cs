@@ -67,12 +67,13 @@ namespace TallinnaRakenduslikKolledz.Controllers
         }
             //------------------------------------------------------------------------------------------------------------
             [HttpGet]
-        public async Task<IActionResult> ViewDelete(int? id)
+        public async Task<IActionResult> ViewDelete(int? id,string mode)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            ViewBag.Mode = mode;
             var department = await _context.Departments
                 .Include(d => d.Adminstrator)
                 .FirstOrDefaultAsync(d => d.DepartmentID == id);

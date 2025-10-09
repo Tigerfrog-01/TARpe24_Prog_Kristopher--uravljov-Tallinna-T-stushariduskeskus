@@ -33,8 +33,8 @@
 						@*/*Vaata*/*@
 						@*/*Vaata Adminit*/*@
 						@*/*Kustuta*/*@
-						<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" class="btn btn-danger">Eemalda</a>
-					<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" class="btn btn-danger">Vaata</a>
+						<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" asp-route-mode="Delete" class="btn btn-danger">Eemalda</a>
+					<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" asp-route-mode="View" class="btn btn-danger">Vaata</a>
 
 				</td>
 			</tr>
