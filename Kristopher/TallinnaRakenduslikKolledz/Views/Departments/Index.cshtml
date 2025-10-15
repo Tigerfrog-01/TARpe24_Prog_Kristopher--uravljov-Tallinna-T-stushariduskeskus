@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TallinnaRakenduslikKolledz.Models.Department>
 @{
 	ViewData["Title"] = "Osakonnad";
-	ViewData["mode"] = "";
+
 
 }
 <h1>Osakonnad</h1>
@@ -39,8 +39,7 @@
 
 					<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" asp-route-mode="Delete" class="btn btn-danger">Eemalda</a>
 					<a asp-action="ViewDelete" asp-route-id="@department.DepartmentID" asp-route-mode="View" class="btn btn-danger">Vaata</a>
-
-					<a asp-action="EditCreate" asp-route-id="@department.DepartmentID" onclick="@Html.ViewBag.mode("Edit")" class="btn btn-danger" >Muuda</a>
+					<a asp-action="EditCreate" asp-route-id="@department.DepartmentID" class="btn btn-danger" >Muuda</a>
 
 				</td>
 			</tr>

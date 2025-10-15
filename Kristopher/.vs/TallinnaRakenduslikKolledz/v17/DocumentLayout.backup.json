@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{A191844B-FB8A-4B32-943E-9D0F6B9DDD31}|TallinnaRakenduslikKolledz\\TallinnaRakenduslikKolledz.csproj|solutionrelative:tallinnarakenduslikkolledz\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A191844B-FB8A-4B32-943E-9D0F6B9DDD31}|TallinnaRakenduslikKolledz\\TallinnaRakenduslikKolledz.csproj|c:\\users\\opilane\\source\\repos\\tarpe24_prog_kristopher--uravljov-tallinna-t-stushariduskeskus\\kristopher\\tallinnarakenduslikkolledz\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A191844B-FB8A-4B32-943E-9D0F6B9DDD31}|TallinnaRakenduslikKolledz\\TallinnaRakenduslikKolledz.csproj|solutionrelative:tallinnarakenduslikkolledz\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A191844B-FB8A-4B32-943E-9D0F6B9DDD31}|TallinnaRakenduslikKolledz\\TallinnaRakenduslikKolledz.csproj|c:\\users\\opilane\\source\\repos\\tarpe24_prog_kristopher--uravljov-tallinna-t-stushariduskeskus\\kristopher\\tallinnarakenduslikkolledz\\views\\departments\\editcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A191844B-FB8A-4B32-943E-9D0F6B9DDD31}|TallinnaRakenduslikKolledz\\TallinnaRakenduslikKolledz.csproj|solutionrelative:tallinnarakenduslikkolledz\\views\\departments\\editcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -22,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CourseController.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\Controllers\\CourseController.cs",
+              "RelativeDocumentMoniker": "TallinnaRakenduslikKolledz\\Controllers\\CourseController.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\Controllers\\CourseController.cs",
+              "RelativeToolTip": "TallinnaRakenduslikKolledz\\Controllers\\CourseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T08:30:45.205Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,20 +49,20 @@
               "RelativeDocumentMoniker": "TallinnaRakenduslikKolledz\\Views\\Departments\\Index.cshtml",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\Views\\Departments\\Index.cshtml*",
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Departments\\Index.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-15T08:15:39.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EditCreate.cshtml",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\Views\\Departments\\EditCreate.cshtml",
               "RelativeDocumentMoniker": "TallinnaRakenduslikKolledz\\Views\\Departments\\EditCreate.cshtml",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\Views\\Departments\\EditCreate.cshtml",
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Views\\Departments\\EditCreate.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEMAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-15T08:15:35.517Z",
               "EditorCaption": ""
@@ -58,7 +75,7 @@
               "RelativeDocumentMoniker": "TallinnaRakenduslikKolledz\\Controllers\\DepartmentsController.cs",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus\\Kristopher\\TallinnaRakenduslikKolledz\\Controllers\\DepartmentsController.cs",
               "RelativeToolTip": "TallinnaRakenduslikKolledz\\Controllers\\DepartmentsController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDYAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-15T08:13:14.079Z",
               "EditorCaption": ""

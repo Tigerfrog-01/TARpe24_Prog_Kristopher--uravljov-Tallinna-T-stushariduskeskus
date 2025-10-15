@@ -25,24 +25,15 @@ namespace TallinnaRakenduslikKolledz.Controllers
         }
         //------------------------------------------------------------------------------------------------------------
         [HttpGet]
-        public IActionResult EditCreate( string mode)
+        public IActionResult EditCreate()
         {
             ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID,FirstName");
-                ViewBag.Mode = mode;
-            if (mode == null)
-            {
-                Console.WriteLine("is null");
-                return RedirectToAction(nameof(EditCreate));
-            }
-            else
-            {
+                
+         
+          
+          
                 return View();
-            }
-
-
-
-           
-    
+            
         }
 
 
@@ -50,26 +41,19 @@ namespace TallinnaRakenduslikKolledz.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditCreate([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, string mode)
         {
-            if (mode == null)
-            {
-                ModelState.Remove("mode");
-            }
+
             if (ModelState.IsValid)
             {
+                _context.Departments.Add(department);
 
-                if (mode == "Edit")
-                {
-                    _context.Departments.Update(department);
-
-                }
-                else
-                {
-                    _context.Departments.Add(department);
-                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            
+            if ()
+            {
+
+            }
+
             ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID","FirstName", department.InstructorID);
             return RedirectToAction("Index");
 
