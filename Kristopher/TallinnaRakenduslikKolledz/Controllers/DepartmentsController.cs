@@ -27,48 +27,54 @@ namespace TallinnaRakenduslikKolledz.Controllers
         [HttpGet]
         public IActionResult EditCreate( string mode)
         {
-            
-
-
             ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID,FirstName");
-            return View();
+                ViewBag.Mode = mode;
+            if (mode == null)
+            {
+                Console.WriteLine("is null");
+                return RedirectToAction(nameof(EditCreate));
+            }
+            else
+            {
+                return View();
+            }
 
-            ViewBag.Mode = mode;
+
+
+           
     
         }
-     
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditCreate([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department,string mode)
+        public async Task<IActionResult> EditCreate([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, string mode)
         {
+            if (mode == null)
+            {
+                ModelState.Remove("mode");
+            }
             if (ModelState.IsValid)
             {
-                if(mode == "Create")
-                { 
-                _context.Add(department);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+
+                if (mode == "Edit")
+                {
+                    _context.Departments.Update(department);
+
                 }
-            }
-            if (ModelState.IsValid)
-            {
-                if(mode == "Edit")
-                    _context.Update(department);
+                else
+                {
+                    _context.Departments.Add(department);
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.Mode = mode;
-            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID","FirstName", department.InstructorID);
-            return View(department);
-
-
             
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID","FirstName", department.InstructorID);
+            return RedirectToAction("Index");
+
+
         }
-
-
-
         //------------------------------------------------------------------------------------------------------------
 
             [HttpGet]
