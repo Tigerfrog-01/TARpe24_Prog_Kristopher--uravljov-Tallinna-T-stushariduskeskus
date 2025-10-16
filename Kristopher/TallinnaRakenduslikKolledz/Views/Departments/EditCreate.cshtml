@@ -1,7 +1,8 @@
 ﻿@model TallinnaRakenduslikKolledz.Models.Department
 @{ViewData["Title"] = "Osakond";
-	var mode = ViewBag.Mode as string;
+	ViewData["Title1"] = "Osakond1";
 }
+
 <h2>Asuta uus osakond</h2>
 <hr/>
 <div class="row">
@@ -59,11 +60,10 @@
 
 
 
-
 			<div class="form-group">
-				<input type="submit" value="Create" class="btn btn-green"/> | <a asp-action="Index" class="btn btn-primary"></a>
-			</div>
 
+				<input type="submit" value="Create" class="btn btn-green" /> | <a asp-action="Index" class="btn btn-primary"></a>
+			</div>
 	
 			
 			
@@ -73,5 +73,5 @@
 
 
 			</div>
-		
+
 

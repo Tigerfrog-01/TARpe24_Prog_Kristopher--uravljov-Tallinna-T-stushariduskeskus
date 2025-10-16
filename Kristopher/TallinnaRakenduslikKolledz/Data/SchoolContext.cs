@@ -19,7 +19,7 @@ namespace TallinnaRakenduslikKolledz.Data
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
 
         public DbSet<Department> Departments { get; set; }
-
+        public object Department { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

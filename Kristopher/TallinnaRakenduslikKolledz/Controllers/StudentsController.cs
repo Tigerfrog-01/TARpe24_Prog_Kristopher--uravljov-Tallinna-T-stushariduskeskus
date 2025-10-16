@@ -56,7 +56,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             {
                 return NotFound();
             }
-            var student = await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
+            var student = await _context.Students.FirstOrDefaultAsync(m => m.DepartmentID == id);
             if (student == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             {
                 return NotFound();
             }
-            var student = await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
+            var student = await _context.Students.FirstOrDefaultAsync(m => m.DepartmentID == id);
             if (student == null)
             {
                 return NotFound();
@@ -106,7 +106,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             {
                 return NotFound();
             }
-            var student = await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
+            var student = await _context.Students.FirstOrDefaultAsync(m => m.DepartmentID == id);
             
             if (student == null)
             {

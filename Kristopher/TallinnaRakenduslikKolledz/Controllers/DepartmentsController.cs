@@ -25,22 +25,55 @@ namespace TallinnaRakenduslikKolledz.Controllers
         }
         //------------------------------------------------------------------------------------------------------------
         [HttpGet]
-        public IActionResult EditCreate()
+
+
+
+        public IActionResult Create()
         {
-            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID,FirstName");
-                
-         
-          
-          
-                return View();
-            
+            ViewData["Title"] = "Osakond";
+
+
+            return View();
+
+
+
         }
+        [HttpGet]
+
+        public async Task<IActionResult> Edit(int? ID)
+        {  
+
+            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID,FirstName");
+
+
+            if (ID == null)
+            {
+                return NotFound();
+            }
+
+            var department = await _context.Departments.FirstOrDefaultAsync(m => m.DepartmentID == ID);
+
+            if (department == null)
+            {
+                return NotFound();
+
+            }
+
+            return View(department);
+        }
+
+
+
+
+
+
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditCreate([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, string mode)
+        public async Task<IActionResult> Create([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, string mode)
         {
+
 
             if (ModelState.IsValid)
             {
@@ -49,19 +82,38 @@ namespace TallinnaRakenduslikKolledz.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            if ()
-            {
 
-            }
 
-            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID","FirstName", department.InstructorID);
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID", "FirstName", department.InstructorID);
             return RedirectToAction("Index");
 
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, string mode, int? id)
+        {
+
+
+            if (ModelState.IsValid)
+            {
+                _context.Departments.Update(department);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+
+            }
+            return NotFound();
+
+
+        }
+
+    
+
+
+
         //------------------------------------------------------------------------------------------------------------
 
-            [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> ViewDelete(int? id,string mode)
         {
 
