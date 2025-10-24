@@ -1,4 +1,5 @@
 ﻿
+using AspNetCoreGeneratedDocument;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,34 +25,21 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
         }
         //------------------------------------------------------------------------------------------------------------
+
+        //----------------EDIT-----------------------------------------------------
+
         [HttpGet]
 
 
-
-        public IActionResult Create()
+        public async Task<IActionResult> Edit(int id)
         {
-            ViewData["Title"] = "Osakond";
-
-
-            return View();
-
-
-
-        }
-        [HttpGet]
-
-        public async Task<IActionResult> Edit(int? ID)
-        {  
-
-            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID,FirstName");
-
-
-            if (ID == null)
+            ViewData["EditCreate"] = "Edit";
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var department = await _context.Departments.FirstOrDefaultAsync(m => m.DepartmentID == ID);
+            var department = await _context.Departments.FirstOrDefaultAsync(d => d.DepartmentID == id);
 
             if (department == null)
             {
@@ -59,61 +47,64 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
             }
 
-            return View(department);
+            return View("EditCreate", department);
         }
 
+       
 
-
-
-
-
-
+      
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, string mode)
+        public async Task<IActionResult> Edit([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, int? id)
         {
-
-
-            if (ModelState.IsValid)
-            {
-                _context.Departments.Add(department);
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-
-
-            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID", "FirstName", department.InstructorID);
-            return RedirectToAction("Index");
-
-
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, string mode, int? id)
-        {
-
-
             if (ModelState.IsValid)
             {
                 _context.Departments.Update(department);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
-
             }
-            return NotFound();
+            return View("EditCreate",department);
+        }
 
+       //----------------CREATE-----------------------------------------------------
+
+
+         [HttpGet]
+        public IActionResult Create()
+        {
+
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID,FirstName");
+            ViewData["EditCreate"] = "Create";
+
+
+
+            return View("EditCreate");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("DepartmentID,Name,StartDate,Budget,RowVersion,Geography,InstructorID,SchoolName")] Department department, int? id)
+        {
+            ModelState.Remove("mode");
+            if (ModelState.IsValid)
+            {
+                _context.Departments.Add(department);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID", "FirstName", department.InstructorID);
+            return NotFound();
 
         }
 
-    
 
 
 
-        //------------------------------------------------------------------------------------------------------------
 
-        [HttpGet]
+            //------------------------------------------------------------------------------------------------------------
+
+            [HttpGet]
         public async Task<IActionResult> ViewDelete(int? id,string mode)
         {
 

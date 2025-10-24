@@ -1,17 +1,27 @@
 ﻿@model TallinnaRakenduslikKolledz.Models.Department
-@{ViewData["Title"] = "Osakond";
-	ViewData["Title1"] = "Osakond1";
+@{
+  ViewData["Title"] = "Osakond1";
+}
+@if(ViewBag.EditCreate == "Create"){
+	<h2>Asuta uus Osakond</h2>
 }
 
-<h2>Asuta uus osakond</h2>
+@if (ViewBag.EditCreate == "Edit")
+{
+	<h2>Muuda osakond</h2>
+}
+
 <hr/>
 <div class="row">
 	<div class="col-md-4">
 
        
-
-		<form asp-action="EditCreate">
-
+		<form method="post">
+			@if (ViewBag.EditCreate == "Edit" )
+			{
+				<input type="hidden" asp-for="DepartmentID" />
+			}
+		
 
 			<input type=" hidden" asp-for="RowVersion" value="@Html.Raw("0")"/>
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -58,20 +68,32 @@
 				<span asp-validation-for="SchoolName" class="text-danger"></span>
 			</div>
 
+			@if (ViewBag.EditCreate == "Create")
+			{
 
+			
+			<div class="form-group">
+
+					<input type="submit" value="Create" asp-action="Create" method="post"class="btn btn-green" /> | <a asp-action="Index" class="btn btn-primary"></a>
+			</div>
+			}
+
+			@if  (ViewBag.EditCreate == "Edit")
+			{
 
 			<div class="form-group">
 
-				<input type="submit" value="Create" class="btn btn-green" /> | <a asp-action="Index" class="btn btn-primary"></a>
-			</div>
-	
-			
-			
-
-			</form>
+		     <input type="submit" value="Edit" class="btn btn-warning" method="post" asp-action="Edit" asp-route-id="@Model.DepartmentID" /> | <a asp-action="Index" class="btn btn-primary"></a>
 			</div>
 
+			}
 
-			</div>
+
+
+		</form>
+	</div>
+
+
+</div>
 
 
