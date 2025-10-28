@@ -21,11 +21,13 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
             return View(courses);
         }
+        //-----------------------CREATE--------------------------------------------------------
         [HttpGet]
         public IActionResult Create()
         {
+            ViewData["CreateEdit"] = "Create";
             PopulateDepartmentsDropDownList();
-            return View();
+            return View("CreateEdit");
         }
 
         [HttpPost]
@@ -37,11 +39,57 @@ namespace TallinnaRakenduslikKolledz.Controllers
            
             _context.Add(Courses);
             await _context.SaveChangesAsync();
-            PopulateDepartmentsDropDownList(Courses.DepartmentID);
+                return RedirectToAction("Index");
+            
             }
-            return RedirectToAction("Index");
+           
+            return View("CreateEdit",Courses);
             
         }
+        //-----------------------EDIT--------------------------------------------------------
+        [HttpGet]
+
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            
+            
+
+            var Course = await _context.Courses.FirstOrDefaultAsync(d => d.CourseID == id);
+
+            if (Course == null)
+            {
+                return NotFound();
+
+            }
+            
+            ViewData["CreateEdit"] = "Edit"; 
+            PopulateDepartmentsDropDownList(Course.DepartmentID);
+
+            return View("CreateEdit", Course);
+        }
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit([Bind("CourseID","Title","Credits","DepartmentID")] Course course)
+        {
+          
+            if (ModelState.IsValid)
+            {              
+                _context.Update(course);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            PopulateDepartmentsDropDownList(course.CourseID);
+            return View("CreateEdit", course);
+        }
+
+
+        //-----------------------------------------------------------------------------------
 
 
         [HttpGet]   

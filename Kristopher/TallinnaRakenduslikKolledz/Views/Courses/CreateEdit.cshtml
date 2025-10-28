@@ -2,14 +2,37 @@
 @{
 	ViewData["Title"] = "Uus kursus";
 }
+@if (ViewBag.EditCreate == "Create")
+{
+	<h2>Asuta uus Osakond</h2>
+}
+
+@if (ViewBag.EditCreate == "Edit")
+{
+	<h2>Muuda osakond</h2>
+}
+
 <h1>Tee uus kursus</h1>
 <h4>Sisesta info:</h4>
 <hr/>
 <div class="row">
 	<div class="col-md-4">
-		<form asp-action="Create">
 
+
+
+
+
+		<form method="post">
+			@if (ViewBag.EditCreate == "Edit")
+			{
+				<input type="hidden" asp-for="CourseID" />
+			}
+
+
+			
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+			
 		
 
 			<div>
@@ -32,14 +55,30 @@
 
 
 				<span asp-validation-for="DepartmentID" class="text-danger"></span>
-				<div class="form-group">
-					<input type="submit" value="Create" class="btn btn-primary "/> <a asp-action="Index" class="btn btn-primary "/> |<a asp-action="Index" class="btn btn-outline-primary ">Tühista</a>
-
-
-
-				</div>
+				
 			
 			</div>
+			@if (ViewBag.CreateEdit == "Create")
+			{
+
+
+				<div class="form-group">
+
+					<input type="submit" value="Create" class="btn btn-primary " /> <a asp-action="Index" class="btn btn-primary " /> |<a asp-action="Index" class="btn btn-outline-primary ">Tühista</a>
+				</div>
+			}
+
+			@if (ViewBag.CreateEdit == "Edit")
+			{
+				<input type="hidden" asp-for="CourseID"/>
+
+
+				<div class="form-group">
+
+					<input type="submit" value="Edit" class="btn btn-warning" method="post" asp-action="Edit" asp-route-id="@Model.CourseID" /> | <a asp-action="Index" class="btn btn-primary"></a>
+				</div>
+
+			}
 
 
 
