@@ -59,7 +59,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             {
                 return NotFound();
             }
-            return View();
+            return View(courses);
         }
 
         [HttpPost, ActionName("Delete")]
