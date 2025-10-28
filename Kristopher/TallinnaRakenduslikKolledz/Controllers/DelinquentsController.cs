@@ -9,13 +9,13 @@ namespace TallinnaRakenduslikKolledz.Controllers
     public class DelinquentsController : Controller
     {
         private readonly SchoolContext _context;
-        private Delinquents delinquents { get; set; }
+       
 
 
 
         public async Task<IActionResult> Index()
         {
-           return View();
+            return View(await _context.Delinquents.ToListAsync());
 
         }
 
@@ -24,18 +24,18 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
         public IActionResult Create()
         {
-            return View(Index);
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create([Bind
-        ("ID,FirstName,LastName,Violation,Subject,CurrentSituations")] Delinquents delinquents)
+        ("ID,FirstName,LastName,Violation,Subject,CurrentSituation")] Delinquents delinquents)
         {
             if (ModelState.IsValid)
             {
                 _context.Delinquents.Add(delinquents);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
 
             }
             return View(delinquents);
