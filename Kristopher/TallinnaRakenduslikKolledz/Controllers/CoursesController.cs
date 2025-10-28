@@ -6,10 +6,10 @@ using TallinnaRakenduslikKolledz.Models;
 
 namespace TallinnaRakenduslikKolledz.Controllers
 {
-    public class CourseController : Controller
+    public class CoursesController : Controller
     {
         private readonly SchoolContext _context;
-        public CourseController(SchoolContext context)
+        public CoursesController(SchoolContext context)
         {
             _context = context;
         }
@@ -59,7 +59,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             {
                 return NotFound();
             }
-            return View(courses);
+            return View();
         }
 
         [HttpPost, ActionName("Delete")]
