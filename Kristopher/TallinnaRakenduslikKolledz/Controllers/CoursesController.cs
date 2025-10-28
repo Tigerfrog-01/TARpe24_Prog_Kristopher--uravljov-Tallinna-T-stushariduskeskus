@@ -45,12 +45,13 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
 
         [HttpGet]   
-        public async Task<IActionResult> Delete(int?id)
+        public async Task<IActionResult> ViewDelete(int?id , string mode)
         {
             if (id == null || _context.Courses == null)
             {
                 return NotFound();
             }
+            ViewBag.Mode = mode;
             var courses = await _context.Courses
                 .Include(c => c.Department)
                 .AsNoTracking()
@@ -62,9 +63,9 @@ namespace TallinnaRakenduslikKolledz.Controllers
             return View(courses);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("ViewDelete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Deleteconfirmed(int id)
+        public async Task<IActionResult> Deleteconfirmed(int id, string mode)
         {
             if (_context.Courses == null)
             {

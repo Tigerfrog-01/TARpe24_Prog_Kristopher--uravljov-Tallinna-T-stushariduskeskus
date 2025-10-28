@@ -133,7 +133,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ViewDelete(Department department,string mode)
+        public async Task<IActionResult> ViewDelete(Department department)
         {
             if (await _context.Departments.AnyAsync(m => m.DepartmentID == department.DepartmentID))
                 {
@@ -141,13 +141,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            if (mode == "Edit")
-            {
-                _context.Departments.Update(department);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-
-            }
+       
 
 
             return RedirectToAction("Index");

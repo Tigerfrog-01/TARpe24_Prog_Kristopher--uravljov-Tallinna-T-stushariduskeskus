@@ -47,7 +47,8 @@
 			
 		
 				<td>
-					<a asp-action="Delete" asp-route-id="@course.CourseID">Kustuta</a>
+					<a asp-action="ViewDelete" asp-route-id="@course.CourseID" asp-route-mode="Delete" class="btn btn-danger">Kustuta </a>
+					<a asp-action="ViewDelete" asp-route-id="@course.CourseID" asp-route-mode="View" class="btn btn-danger">Vaata</a>
 				</td>
 			</tr>
 		}

@@ -24,16 +24,16 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kasutaja/source/repos/TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus/Kristopher/TallinnaRakenduslikKolledz/Views/Courses/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Kasutaja/source/repos/TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus/Kristopher/TallinnaRakenduslikKolledz/Views/Courses/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Kasutaja/source/repos/TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus/Kristopher/TallinnaRakenduslikKolledz/Views/Courses/IndexOld.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xJbmRleE9sZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kasutaja/source/repos/TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus/Kristopher/TallinnaRakenduslikKolledz/Views/Courses/ViewDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xWaWV3RGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Kasutaja/source/repos/TARpe24_Prog_Kristopher--uravljov-Tallinna-T-stushariduskeskus/Kristopher/TallinnaRakenduslikKolledz/Views/Delinquents/Create.cshtml]

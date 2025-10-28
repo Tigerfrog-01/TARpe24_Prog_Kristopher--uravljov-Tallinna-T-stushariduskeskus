@@ -1,7 +1,7 @@
 ﻿@model TallinnaRakenduslikKolledz.Models.Course
 @{
-	ViewData["Title"] = ("kustuta kursus");
-	
+	ViewData["Title"] = "Kustuta Course";
+	var mode = ViewBag.Mode as string;
 	
 }
 <h2>@Html.DisplayFor(modelItem => Model.Title)</h2>
@@ -32,8 +32,12 @@
 
 
 	</dl>
-	
-		<form asp-action="Delete">
+	@if(mode == "Delete")
+	{
+		
+		<form asp-action="ViewDelete">
+   <input type="hidden" asp-for="CourseID"/>
+
 			
 			<input type="submit" value="Kustuta" class="btn btn-danger" />|
 
@@ -42,6 +46,6 @@
 
 			<a asp-action="Index">Tühista</a>
 		</form>
-	
+	}
 </div>
 </div>
