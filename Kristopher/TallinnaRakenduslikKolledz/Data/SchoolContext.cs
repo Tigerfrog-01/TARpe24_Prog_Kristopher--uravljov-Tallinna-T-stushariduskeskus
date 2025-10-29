@@ -14,7 +14,7 @@ namespace TallinnaRakenduslikKolledz.Data
 
         public DbSet<Student> Students { get; set; }
 
-        public DbSet<Delinquents> Delinquents { get; set; }
+        public DbSet<Delinquents> delinquents { get; set; }
         //
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<CourseAssigment> CourseAssigments { get; set; }

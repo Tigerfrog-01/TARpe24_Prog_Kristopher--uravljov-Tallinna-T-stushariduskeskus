@@ -15,7 +15,13 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Delinquents.ToListAsync());
+            return View(await _context.delinquents.ToListAsync());
+
+        }
+        public DelinquentsController(SchoolContext context)
+        {
+
+            _context = context;
 
         }
 
@@ -33,7 +39,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Delinquents.Add(delinquents);
+                _context.delinquents.Add(delinquents);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
 
