@@ -9,7 +9,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
     public class DelinquentsController : Controller
     {
         private readonly SchoolContext _context;
-       
+
 
 
 
@@ -47,6 +47,24 @@ namespace TallinnaRakenduslikKolledz.Controllers
             return View(delinquents);
         }
 
+        [HttpGet]
 
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var delinquents = await _context.delinquents.FirstOrDefaultAsync(m => m.ID == id);
+            if (delinquents == null)
+            {
+                return NotFound();
+
+            }
+
+            return View(delinquents);
+
+
+        }
     }
 }
