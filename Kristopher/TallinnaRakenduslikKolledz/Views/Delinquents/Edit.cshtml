@@ -1,0 +1,78 @@
+﻿@model TallinnaRakenduslikKolledz.Models.Delinquents
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h1>Muuda Raport</h1>
+<hr />
+<div class="row">
+	<div class=" col-md-4">
+
+		<form asp-action="Edit">
+
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+			<div class="form-group">
+
+				<label asp-for="FirstName" class="control label"></label>
+				<input asp-for="FirstName" class="form-control" />
+				<span asp-validation-for="FirstName" class="text-danger"></span>
+			</div>
+
+			<div class="form group">
+
+				<label asp-for="LastName" class="Control-label"></label>
+				<input asp-for="LastName" class="form-control" />
+				<span asp-validation-for="LastName" class="text-danger"></span>
+			</div>
+
+			<div class="from-group row">
+				<label asp-for="Violation" class="col-sm-2 col-form-label"></label>
+				<div class="col-sm-10">
+					<select asp-for="Violation" asp-items="Html.GetEnumSelectList<Violation>()">
+						<option value="">-- Vali rikkumine</option>
+					</select>
+					<span asp-validation-for="Violation"></span>
+
+				</div>
+
+				<div class="from-group row">
+					<label asp-for="Subject" class="col-sm-2 col-form-label"></label>
+					<div class="col-sm-10">
+						<select asp-for="Subject" asp-items="Html.GetEnumSelectList<Subject>()">
+							<option value="">-- Vali süüdlane</option>
+						</select>
+						<span asp-validation-for="Subject"></span>
+
+					</div>
+
+
+
+					<div class="form group">
+
+						<label asp-for="CurrentSituation" class="Control-label"></label>
+						<input asp-for="CurrentSituation" class="form-control" />
+						<span asp-validation-for="CurrentSituation" class="text-danger"></span>
+					</div>
+
+
+					<div class="form group">
+
+						<input type="submit" value="Sisesta" class="btn btn-primary" />
+
+					</div>
+
+
+		</form>
+
+
+	</div>
+
+</div>
+
+<div>
+
+
+	<a asp-action="Index">"Mine tagasi loendise"</a>
+
+</div>
